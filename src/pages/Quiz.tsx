@@ -1,0 +1,162 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ArrowRight, ArrowLeft, CheckCircle } from "lucide-react";
+import Navbar from "@/components/landing/Navbar";
+import Footer from "@/components/landing/Footer";
+
+interface QuizAnswer {
+  question: number;
+  answer: string;
+}
+
+const questions = [
+  {
+    title: "Qual è la tua esigenza legale principale?",
+    subtitle: "Seleziona l'area che ti interessa di più.",
+    options: [
+      { label: "Contrattualistica", desc: "Ho bisogno di redigere o revisionare contratti" },
+      { label: "Recupero Crediti", desc: "Ho fatture non pagate o clienti insolventi" },
+      { label: "Crisi d'Impresa", desc: "La mia azienda sta attraversando difficoltà finanziarie" },
+      { label: "Contenzioso Commerciale", desc: "Ho una disputa legale in corso o imminente" },
+      { label: "Altro / Non sono sicuro", desc: "Vorrei un check-up generale della mia situazione" },
+    ],
+  },
+  {
+    title: "Quanti dipendenti ha la tua azienda?",
+    subtitle: "Ci aiuta a calibrare la complessità del tuo caso.",
+    options: [
+      { label: "1-5 dipendenti", desc: "Micro impresa" },
+      { label: "6-15 dipendenti", desc: "Piccola impresa" },
+      { label: "16-50 dipendenti", desc: "Media impresa" },
+      { label: "Oltre 50 dipendenti", desc: "Impresa strutturata" },
+    ],
+  },
+  {
+    title: "Quanto è urgente la tua situazione?",
+    subtitle: "Così organizziamo le priorità.",
+    options: [
+      { label: "Urgente", desc: "Ho una scadenza imminente o un problema critico" },
+      { label: "Entro 30 giorni", desc: "Non è urgentissimo ma vorrei muovermi presto" },
+      { label: "Sto valutando", desc: "Voglio informarmi prima di prendere decisioni" },
+    ],
+  },
+  {
+    title: "Hai già un avvocato di riferimento?",
+    subtitle: "Non c'è risposta sbagliata — ci aiuta a capire il contesto.",
+    options: [
+      { label: "No, non ho un avvocato", desc: "Cerco un nuovo riferimento legale per la mia impresa" },
+      { label: "Sì, ma non sono soddisfatto", desc: "Vorrei valutare un cambio" },
+      { label: "Sì, cerco un secondo parere", desc: "Voglio confrontare l'opinione del mio avvocato" },
+    ],
+  },
+];
+
+const Quiz = () => {
+  const [step, setStep] = useState(0);
+  const [answers, setAnswers] = useState<QuizAnswer[]>([]);
+  const [selected, setSelected] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  const handleNext = () => {
+    if (!selected) return;
+    const newAnswers = [...answers.filter(a => a.question !== step), { question: step, answer: selected }];
+    setAnswers(newAnswers);
+    setSelected(null);
+
+    if (step < questions.length - 1) {
+      setStep(step + 1);
+    } else {
+      // Store answers and go to booking
+      sessionStorage.setItem("quizAnswers", JSON.stringify(newAnswers));
+      navigate("/prenota");
+    }
+  };
+
+  const handleBack = () => {
+    if (step > 0) {
+      const prevAnswer = answers.find(a => a.question === step - 1);
+      setSelected(prevAnswer?.answer || null);
+      setStep(step - 1);
+    }
+  };
+
+  const current = questions[step];
+  const progress = ((step + 1) / questions.length) * 100;
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-1 flex items-center justify-center px-6 py-12 md:py-20 bg-background">
+        <div className="w-full max-w-2xl">
+          {/* Progress bar */}
+          <div className="mb-8">
+            <div className="flex justify-between text-sm text-muted-foreground mb-2">
+              <span>Domanda {step + 1} di {questions.length}</span>
+              <span>{Math.round(progress)}%</span>
+            </div>
+            <div className="h-2 bg-secondary rounded-full overflow-hidden">
+              <div
+                className="h-full bg-primary rounded-full transition-all duration-500"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Question */}
+          <div className="mb-8">
+            <h1 className="text-foreground text-2xl md:text-3xl font-black mb-2">{current.title}</h1>
+            <p className="text-muted-foreground">{current.subtitle}</p>
+          </div>
+
+          {/* Options */}
+          <div className="flex flex-col gap-3 mb-8">
+            {current.options.map((opt) => (
+              <button
+                key={opt.label}
+                onClick={() => setSelected(opt.label)}
+                className={`w-full text-left p-5 rounded-xl border-2 transition-all ${
+                  selected === opt.label
+                    ? "border-primary bg-primary/5"
+                    : "border-border bg-card hover:border-primary/40"
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-bold text-foreground">{opt.label}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{opt.desc}</p>
+                  </div>
+                  {selected === opt.label && (
+                    <CheckCircle className="w-6 h-6 text-primary shrink-0" />
+                  )}
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Navigation */}
+          <div className="flex justify-between">
+            <button
+              onClick={handleBack}
+              disabled={step === 0}
+              className="flex items-center gap-2 px-6 h-12 rounded-lg text-muted-foreground font-medium hover:text-foreground transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Indietro
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={!selected}
+              className="flex items-center gap-2 px-8 h-12 rounded-lg bg-primary text-primary-foreground font-bold hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              {step === questions.length - 1 ? "Vedi risultati" : "Avanti"}
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default Quiz;

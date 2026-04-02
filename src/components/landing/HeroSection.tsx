@@ -6,11 +6,19 @@ import { useState, useEffect } from "react";
 const HeroSection = () => {
   const [showBubble, setShowBubble] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowBubble(true), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+    const handleScroll = () => {
+      const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+      if (scrollPercent >= 0.3 && !visible) {
+        setVisible(true);
+        setTimeout(() => setShowBubble(true), 1500);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [visible]);
 
   return (
     <section className="bg-surface">
@@ -36,8 +44,8 @@ const HeroSection = () => {
       </div>
 
       {/* Floating avatar circle */}
-      {!dismissed && (
-        <div className="hidden lg:block fixed bottom-8 right-8 z-50">
+      {visible && !dismissed && (
+        <div className="hidden lg:block fixed bottom-8 right-8 z-50 animate-fade-in">
           <div className="relative">
             <div
               className={`absolute bottom-full right-0 mb-3 w-72 bg-surface rounded-2xl shadow-ambient-md p-4 transition-all duration-500 ${

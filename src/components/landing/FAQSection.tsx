@@ -28,7 +28,7 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="px-6 py-20 md:px-20 bg-surface">
+    <section id="faq" className="px-6 py-20 md:px-20 bg-surface-container-low">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
           <span className="text-primary font-bold text-xs uppercase tracking-label mb-3 block">
@@ -42,7 +42,7 @@ const FAQSection = () => {
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className={`px-8 py-5 rounded-2xl bg-surface-container-low cursor-pointer transition-shadow ${
+              className={`px-8 py-5 rounded-2xl bg-surface cursor-pointer transition-shadow ${
                 openIndex === i ? "shadow-ambient-md" : "shadow-ambient"
               }`}
               onClick={() => setOpenIndex(openIndex === i ? null : i)}

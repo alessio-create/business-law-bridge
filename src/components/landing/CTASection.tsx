@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 const CTASection = () => (
-  <section className="px-6 py-12 md:px-20 mb-12">
+  <section className="px-6 py-12 md:px-20 mb-12 bg-surface">
     <div className="max-w-[1200px] mx-auto rounded-3xl bg-primary p-8 md:p-16 text-center text-primary-foreground relative overflow-hidden shadow-primary-xl">
       <div className="absolute top-0 right-0 w-64 h-64 bg-primary-foreground/5 rounded-full -mr-32 -mt-32" />
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-foreground/5 rounded-full -ml-24 -mb-24" />

@@ -13,8 +13,8 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative bg-surface overflow-hidden">
-      <div className="px-6 py-16 md:px-20 md:py-24">
+    <section className="bg-surface">
+      <div className="px-6 py-20 md:px-20 md:py-28">
         <div className="max-w-[800px] mx-auto flex flex-col items-center text-center gap-8">
           <span className="text-primary font-bold tracking-label uppercase text-xs">
             Avvocato d'Impresa — Contrattualistica
@@ -39,7 +39,6 @@ const HeroSection = () => {
       {!dismissed && (
         <div className="hidden lg:block fixed bottom-8 right-8 z-50">
           <div className="relative">
-            {/* Speech bubble */}
             <div
               className={`absolute bottom-full right-0 mb-3 w-72 bg-surface rounded-2xl shadow-ambient-md p-4 transition-all duration-500 ${
                 showBubble
@@ -58,11 +57,9 @@ const HeroSection = () => {
                 Sono l'Avv. <strong>Alberto Fazio</strong>, Cassazionista con{" "}
                 <strong>28 anni di esperienza</strong> in contrattualistica. Inizia con il Check-Up Legale! 👋
               </p>
-              {/* Bubble tail */}
               <div className="absolute -bottom-2 right-8 w-4 h-4 bg-surface rotate-45 shadow-sm" />
             </div>
 
-            {/* Avatar */}
             <div className="w-16 h-16 rounded-full overflow-hidden shadow-primary-xl ring-4 ring-primary/20 cursor-pointer hover:scale-105 transition-transform">
               <img
                 src={heroImage}
@@ -75,13 +72,6 @@ const HeroSection = () => {
           </div>
         </div>
       )}
-
-      {/* Diagonal cut */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-        <svg viewBox="0 0 1200 80" preserveAspectRatio="none" className="w-full h-12 md:h-20">
-          <polygon fill="hsl(var(--surface-container-low))" points="0,80 1200,80 1200,0" />
-        </svg>
-      </div>
     </section>
   );
 };

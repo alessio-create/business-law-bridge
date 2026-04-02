@@ -44,7 +44,6 @@ const ProblemsSection = () => (
             key={p.title}
             className="flex flex-col md:flex-row gap-6 rounded-2xl bg-surface p-8 shadow-ambient hover:shadow-ambient-md transition-shadow"
           >
-            {/* Left: problem explanation */}
             <div className="flex gap-5 md:w-1/2">
               <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl bg-destructive/10 text-destructive">
                 <p.icon className="w-5 h-5" />
@@ -54,8 +53,7 @@ const ProblemsSection = () => (
                 <p className="text-muted-foreground text-sm leading-relaxed">{p.explanation}</p>
               </div>
             </div>
-            {/* Right: real case */}
-            <div className="md:w-1/2 md:border-l md:border-border md:pl-6 flex items-start gap-3">
+            <div className="md:w-1/2 md:pl-6 flex items-start gap-3">
               <span className="shrink-0 mt-0.5 text-xs font-bold uppercase tracking-label text-primary bg-primary/10 px-2.5 py-1 rounded-full">
                 Caso reale
               </span>

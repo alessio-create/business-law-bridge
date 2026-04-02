@@ -1,4 +1,5 @@
-import { CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+import { CheckCircle, ArrowRight } from "lucide-react";
 import valuesIllustration from "@/assets/values-illustration.png";
 
 const values = [
@@ -43,9 +44,24 @@ const ValuesSection = () => (
               </div>
             ))}
           </div>
-          <p className="text-foreground font-bold text-base mt-2 italic">
+          <p className="text-foreground font-bold text-base mt-4 italic">
             I tuoi contratti sono davvero a prova di causa?
           </p>
+          <div className="flex gap-4 mt-2">
+            <Link
+              to="/quiz"
+              className="inline-flex items-center gap-2 rounded-lg h-12 px-6 bg-primary text-primary-foreground text-sm font-bold shadow-primary-lg hover:scale-[1.02] transition-transform"
+            >
+              No, voglio verificare
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/quiz"
+              className="inline-flex items-center gap-2 rounded-lg h-12 px-6 bg-surface-container-low text-foreground text-sm font-bold shadow-ambient hover:shadow-ambient-md transition-shadow"
+            >
+              Sì, ma voglio essere sicuro
+            </Link>
+          </div>
         </div>
         <div className="w-full md:w-1/2 flex items-center justify-center">
           <img

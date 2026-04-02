@@ -3,27 +3,27 @@ import { AlertTriangle, FileWarning, ShieldAlert, XCircle } from "lucide-react";
 const problems = [
   {
     icon: FileWarning,
-    title: "Contratti copia-incolla",
-    explanation: "Modelli generici scaricati da internet non proteggono la tua impresa. Ogni clausola mancante è un rischio concreto.",
-    cases: "Un nostro cliente ha perso €45.000 in una causa perché il suo contratto di fornitura non prevedeva penali per ritardi.",
+    title: "Contratti su misura vs. modelli generici",
+    explanation: "I modelli scaricati da internet lasciano scoperti punti critici. Un contratto personalizzato protegge ogni aspetto del tuo business.",
+    cases: "Un nostro cliente ha recuperato €45.000 grazie a clausole penali che abbiamo inserito nel suo contratto di fornitura.",
   },
   {
     icon: XCircle,
-    title: "Clausole ambigue",
-    explanation: "Un contratto poco chiaro genera contestazioni, ritardi nei pagamenti e cause costose che potevi evitare.",
-    cases: "Abbiamo assistito un'impresa trascinata in tribunale per 2 anni a causa di una clausola di pagamento interpretabile in due modi diversi.",
+    title: "Clausole chiare, zero contestazioni",
+    explanation: "Quando ogni termine è preciso, si evitano interpretazioni ambigue, ritardi nei pagamenti e contenziosi inutili.",
+    cases: "Abbiamo riscritto un contratto di pagamento ambiguo, risolvendo una disputa che durava da mesi senza andare in tribunale.",
   },
   {
     icon: ShieldAlert,
-    title: "Nessuna tutela su penali e recesso",
-    explanation: "Senza clausole di uscita ben scritte, resti bloccato in rapporti commerciali svantaggiosi.",
-    cases: "Un imprenditore è rimasto vincolato 3 anni a un fornitore inadempiente perché il contratto non prevedeva una clausola di recesso.",
+    title: "Libertà di uscita garantita",
+    explanation: "Clausole di recesso e penali ben calibrate ti danno il controllo: puoi chiudere rapporti svantaggiosi senza restare bloccato.",
+    cases: "Grazie a una clausola di recesso su misura, un imprenditore si è liberato in 30 giorni da un fornitore inadempiente.",
   },
   {
     icon: AlertTriangle,
-    title: "Non conformità normativa",
-    explanation: "GDPR, codice civile, normative di settore: un contratto non aggiornato espone l'azienda a sanzioni.",
-    cases: "Un'azienda ha ricevuto una multa da €20.000 dal Garante Privacy per un contratto con i fornitori non conforme al GDPR.",
+    title: "Sempre in regola con le normative",
+    explanation: "GDPR, codice civile, normative di settore: teniamo i tuoi contratti aggiornati così non devi preoccuparti di sanzioni.",
+    cases: "Abbiamo adeguato i contratti di un'azienda al GDPR prima di un'ispezione, evitando una sanzione potenziale da €20.000.",
   },
 ];
 
@@ -32,32 +32,34 @@ const ProblemsSection = () => (
     <div className="max-w-[1200px] mx-auto">
       <div className="text-center mb-16">
         <span className="text-primary font-bold text-xs uppercase tracking-label mb-3 block">
-          Perché Serve un Esperto
+          Perché Affidarsi a un Esperto
         </span>
         <h2 className="text-foreground text-3xl md:text-4xl font-black max-w-2xl mx-auto text-balance">
-          Un contratto fatto male ti costa più dell'avvocato
+          Un contratto ben fatto è il miglior investimento per la tua impresa
         </h2>
       </div>
-      <div className="flex flex-col gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {problems.map((p) => (
           <div
             key={p.title}
-            className="flex flex-col md:flex-row gap-6 rounded-2xl bg-surface p-8 shadow-ambient hover:shadow-ambient-md transition-shadow"
+            className="rounded-2xl bg-surface p-8 shadow-ambient hover:shadow-ambient-md transition-shadow flex flex-col gap-5"
           >
-            <div className="flex gap-5 md:w-1/2">
-              <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl bg-destructive/10 text-destructive">
-                <p.icon className="w-5 h-5" />
+            <div className="flex gap-4 items-start">
+              <div className="w-10 h-10 shrink-0 flex items-center justify-center rounded-xl bg-primary/10">
+                <p.icon className="w-5 h-5 text-primary" />
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-1.5">
                 <h3 className="text-foreground text-lg font-bold">{p.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{p.explanation}</p>
               </div>
             </div>
-            <div className="md:w-1/2 md:pl-6 flex items-start gap-3">
-              <span className="shrink-0 mt-0.5 text-xs font-bold uppercase tracking-label text-primary bg-primary/10 px-2.5 py-1 rounded-full">
-                Caso reale
-              </span>
-              <p className="text-muted-foreground text-sm leading-relaxed italic">{p.cases}</p>
+            <div className="bg-surface-container-low rounded-xl px-5 py-4">
+              <div className="flex items-start gap-2.5">
+                <span className="shrink-0 text-[10px] font-bold uppercase tracking-label text-primary bg-primary/10 px-2 py-0.5 rounded-full mt-0.5">
+                  Risultato
+                </span>
+                <p className="text-muted-foreground text-sm leading-relaxed">{p.cases}</p>
+              </div>
             </div>
           </div>
         ))}

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield } from "lucide-react";
+import { ArrowRight, Award } from "lucide-react";
 import heroImage from "@/assets/hero-lawyer.jpg";
 
 const HeroSection = () => (
@@ -46,12 +46,9 @@ const HeroSection = () => (
           {/* Floating badge with glass effect */}
           <div className="absolute -bottom-6 -left-6 bg-surface/90 backdrop-blur-xl p-5 rounded-xl shadow-ambient-md hidden md:flex items-center gap-4">
             <div className="p-3 bg-primary/10 rounded-full">
-              <Shield className="w-6 h-6 text-primary" />
+              <Award className="w-6 h-6 text-primary" />
             </div>
-            <div>
-              <p className="text-sm font-semibold text-foreground">Cassazionista — 28+ anni di esperienza</p>
-              <p className="text-xl font-bold text-foreground">Preventivo scritto garantito</p>
-            </div>
+            <p className="text-base font-bold text-foreground">Cassazionista — 28+ anni di esperienza</p>
           </div>
         </div>
       </div>

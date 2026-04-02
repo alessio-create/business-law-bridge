@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield } from "lucide-react";
+import { ArrowRight, Award } from "lucide-react";
 import heroImage from "@/assets/hero-lawyer.jpg";
 
 const HeroSection = () => (

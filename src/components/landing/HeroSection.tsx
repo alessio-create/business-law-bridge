@@ -20,11 +20,6 @@ const HeroSection = () => (
             </p>
           </div>
 
-          <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-            <Shield className="w-4 h-4 text-primary" />
-            <span>Cassazionista — 28+ anni di esperienza</span>
-          </div>
-
           <div className="flex flex-wrap gap-4">
             <Link
               to="/quiz"
@@ -34,6 +29,7 @@ const HeroSection = () => (
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
+
         </div>
 
         {/* Image — overlapping right */}
@@ -53,7 +49,7 @@ const HeroSection = () => (
               <Shield className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Trasparenza Radicale</p>
+              <p className="text-sm font-semibold text-foreground">Cassazionista — 28+ anni di esperienza</p>
               <p className="text-xl font-bold text-foreground">Preventivo scritto garantito</p>
             </div>
           </div>

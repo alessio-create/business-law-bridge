@@ -4,7 +4,7 @@ import heroImage from "@/assets/hero-lawyer.jpg";
 
 const HeroSection = () => (
   <section className="relative bg-surface overflow-hidden">
-    <div className="px-6 py-20 md:px-20 md:py-28">
+    <div className="px-6 py-10 md:px-20 md:py-16">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Text — asymmetric left */}
         <div className="flex flex-col gap-8 z-10">

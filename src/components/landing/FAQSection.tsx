@@ -3,24 +3,24 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    q: "Quanto costa il check-up legale?",
-    a: "Il check-up iniziale di 30 minuti è completamente gratuito e senza impegno. Serve a capire se i tuoi contratti ti proteggono davvero.",
+    q: "Il check-up è davvero gratuito?",
+    a: "Sì, 100%. Sono 30 minuti dedicati ad analizzare i tuoi contratti e capire dove sei esposto. Nessun costo, nessun obbligo.",
+  },
+  {
+    q: "Quanto costa redigere un contratto?",
+    a: "Dipende dalla complessità, ma riceverai sempre un preventivo scritto prima di iniziare. Zero sorprese. Il preventivo è incluso nel check-up gratuito.",
   },
   {
     q: "Lavorate solo con aziende di Trento?",
-    a: "Abbiamo sede a Trento ma assistiamo imprese in tutto il Nord-Est: Trentino-Alto Adige, Veneto e Friuli. Per il contenzioso in Cassazione operiamo su tutto il territorio nazionale.",
+    a: "No. Lavoriamo con imprese in tutta Italia, in presenza o da remoto. Lo studio è a Trento, ma operiamo ovunque.",
   },
   {
-    q: "Come funziona il preventivo scritto?",
-    a: "Dopo il check-up, ricevi un documento con l'analisi dei tuoi contratti, la strategia proposta, i costi dettagliati e i tempi stimati. Nessuna sorpresa.",
+    q: "Che tipo di contratti trattate?",
+    a: "Contratti di fornitura, appalto e subappalto, distribuzione e franchising, IT/SaaS, licensing, e revisione di contratti esistenti.",
   },
   {
-    q: "Posso cambiare avvocato in corso d'opera?",
-    a: "Assolutamente sì. Se hai già un avvocato, possiamo subentrare in qualsiasi momento. Analizzeremo lo stato della pratica e ti diremo come procedere.",
-  },
-  {
-    q: "Che tipo di contratti gestite?",
-    a: "Contratti di fornitura, appalto, distribuzione, partnership, SaaS, licenza, franchising, subappalto e qualsiasi accordo commerciale tra imprese.",
+    q: "In quanto tempo redigete un contratto?",
+    a: "I tempi dipendono dalla complessità. Li concordiamo nel preventivo e li rispettiamo. Ricevi aggiornamenti periodici sullo stato di avanzamento.",
   },
 ];
 
@@ -28,14 +28,23 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="px-6 py-20 md:px-20 bg-background">
-      <div className="max-w-[800px] mx-auto">
-        <h2 className="text-foreground text-3xl font-black text-center mb-12">Domande Frequenti</h2>
-        <div className="flex flex-col gap-4">
+    <section id="faq" className="px-6 py-20 md:px-20 bg-surface">
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-16">
+          <span className="text-primary font-bold text-xs uppercase tracking-label mb-3 block">
+            Domande Frequenti
+          </span>
+          <h2 className="text-foreground text-3xl md:text-4xl font-black">
+            Hai qualche dubbio?
+          </h2>
+        </div>
+        <div className="flex flex-col gap-3">
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className="p-6 rounded-xl border border-border bg-card cursor-pointer transition-all hover:border-primary"
+              className={`px-8 py-5 rounded-2xl bg-surface-container-low cursor-pointer transition-shadow ${
+                openIndex === i ? "shadow-ambient-md" : "shadow-ambient"
+              }`}
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
             >
               <div className="flex items-center justify-between">

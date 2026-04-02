@@ -3,7 +3,7 @@ import HeroSection from "@/components/landing/HeroSection";
 import GoogleReviewsStrip from "@/components/landing/GoogleReviewsStrip";
 import ProblemsSection from "@/components/landing/ProblemsSection";
 import ValuesSection from "@/components/landing/ValuesSection";
-import ProcessSection from "@/components/landing/ProcessSection";
+
 import FAQSection from "@/components/landing/FAQSection";
 import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import CTASection from "@/components/landing/CTASection";

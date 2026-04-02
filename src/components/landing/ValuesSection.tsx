@@ -18,16 +18,16 @@ const values = [
 
 const ValuesSection = () => (
   <section className="px-6 py-20 md:px-20 bg-surface">
-    <div className="max-w-[900px] mx-auto">
-      <div className="flex flex-col md:flex-row gap-12 items-center bg-surface-container-low rounded-3xl p-8 md:p-12 shadow-ambient">
+    <div className="max-w-[1200px] mx-auto">
+      <div className="flex flex-col md:flex-row gap-16 items-center">
         <div className="w-full md:w-1/2 flex flex-col gap-6">
           <span className="text-primary font-bold text-xs uppercase tracking-label">
             Le Nostre Promesse
           </span>
-          <h2 className="text-foreground text-2xl md:text-3xl font-black">
+          <h2 className="text-foreground text-3xl md:text-4xl font-black">
             Cosa ottieni dal Check-up Gratuito
           </h2>
-          <p className="text-muted-foreground text-base leading-relaxed">
+          <p className="text-muted-foreground text-lg leading-relaxed">
             30 minuti per analizzare i tuoi contratti e capire dove sei esposto. Ricevi un piano d'azione chiaro, senza impegno.
           </p>
           <div className="flex flex-col gap-4 mt-2">
@@ -51,7 +51,7 @@ const ValuesSection = () => (
           <img
             src={valuesIllustration}
             alt="Imprenditore con contratto sicuro e futuro protetto"
-            className="w-full max-w-sm"
+            className="w-full max-w-2xl"
             loading="lazy"
             width={1024}
             height={1024}

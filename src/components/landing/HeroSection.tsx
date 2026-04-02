@@ -58,7 +58,7 @@ const HeroSection = () => (
               <Shield className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Trasparenza Radicale</p>
+              <p className="text-sm font-semibold text-foreground">Cassazionista — 28+ anni di esperienza</p>
               <p className="text-xl font-bold text-foreground">Preventivo scritto garantito</p>
             </div>
           </div>

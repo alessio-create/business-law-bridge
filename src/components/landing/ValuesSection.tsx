@@ -58,7 +58,7 @@ const ValuesSection = () => (
           <img
             src={valuesIllustration}
             alt="Imprenditore con contratto sicuro e futuro protetto"
-            className="w-full max-w-md"
+            className="w-full max-w-lg"
             loading="lazy"
             width={1024}
             height={1024}

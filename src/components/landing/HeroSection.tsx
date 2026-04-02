@@ -10,7 +10,7 @@ const HeroSection = () => {
   const [heroLoaded, setHeroLoaded] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setHeroLoaded(true), 100);
+    const t = setTimeout(() => setHeroLoaded(true), 150);
     return () => clearTimeout(t);
   }, []);
 
@@ -27,41 +27,47 @@ const HeroSection = () => {
   }, [visible]);
 
   return (
-    <section className="bg-surface">
-      <div className="px-6 py-24 md:px-20 md:py-32">
-        <div className="max-w-[740px] mx-auto flex flex-col items-center text-center gap-7">
+    <section className="bg-surface relative">
+      {/* Subtle radial glow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-primary/[0.03] blur-3xl" />
+      </div>
+
+      <div className="relative px-6 py-28 md:px-20 md:py-36">
+        <div className="max-w-[700px] mx-auto flex flex-col items-center text-center gap-8">
           <span
-            className={`text-primary font-semibold tracking-label uppercase text-[11px] transition-all duration-700 ${
+            className={`text-primary/80 font-semibold tracking-label uppercase text-[11px] transition-all duration-700 ease-out ${
               heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
             Avvocato d'Impresa — Contrattualistica
           </span>
           <h1
-            className={`text-foreground text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-black leading-[1.06] text-balance transition-all duration-700 delay-150 ${
-              heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            className={`text-foreground text-[2.5rem] md:text-[3.25rem] lg:text-[3.75rem] font-black leading-[1.05] text-balance transition-all duration-800 ease-out delay-200 ${
+              heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            I tuoi contratti ti proteggono <em className="not-italic text-navy-light">davvero</em>?
+            I tuoi contratti ti proteggono{" "}
+            <em className="not-italic text-navy-light">davvero</em>?
           </h1>
           <p
-            className={`text-muted-foreground text-lg md:text-xl leading-relaxed max-w-lg transition-all duration-700 delay-300 ${
+            className={`text-muted-foreground text-[17px] md:text-lg leading-[1.7] max-w-[520px] transition-all duration-700 ease-out delay-[400ms] ${
               heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
             Contratti chiari, blindati, su misura per la tua impresa. Preventivo scritto prima di iniziare. Sempre.
           </p>
           <div
-            className={`transition-all duration-700 delay-[450ms] ${
+            className={`transition-all duration-700 ease-out delay-[550ms] ${
               heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
             <Link
               to="/quiz"
-              className="group inline-flex items-center gap-2.5 rounded-xl h-14 px-9 bg-primary text-primary-foreground text-[15px] font-bold shadow-primary-lg hover:scale-[1.03] hover:shadow-primary-xl active:scale-[0.98] transition-all duration-200"
+              className="group inline-flex items-center gap-2.5 rounded-xl h-[52px] px-8 bg-primary text-primary-foreground text-[15px] font-bold shadow-primary-lg hover:shadow-primary-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
             >
               Check-up Legale Gratuito
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+              <ArrowRight className="w-[18px] h-[18px] group-hover:translate-x-0.5 transition-transform duration-300" />
             </Link>
           </div>
         </div>
@@ -72,25 +78,25 @@ const HeroSection = () => {
         <div className="hidden lg:block fixed bottom-8 right-8 z-50 animate-fade-in">
           <div className="relative">
             <div
-              className={`absolute bottom-full right-0 mb-3 w-72 bg-surface rounded-2xl shadow-ambient-md p-4 transition-all duration-500 ${
+              className={`absolute bottom-full right-0 mb-3 w-72 bg-surface/95 backdrop-blur-xl rounded-2xl shadow-ambient-lg p-5 transition-all duration-500 ease-out ${
                 showBubble ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
               }`}
             >
               <button
                 onClick={() => setDismissed(true)}
-                className="absolute top-2 right-2 p-1 rounded-full hover:bg-muted/50 transition-colors"
+                className="absolute top-3 right-3 p-1 rounded-full hover:bg-muted/50 transition-colors"
                 aria-label="Chiudi"
               >
                 <X className="w-3.5 h-3.5 text-muted-foreground" />
               </button>
-              <p className="text-foreground text-sm leading-relaxed pr-5">
+              <p className="text-foreground text-[13px] leading-relaxed pr-5">
                 Sono l'Avv. <strong>Alberto Fazio</strong>, Cassazionista con{" "}
                 <strong>28 anni di esperienza</strong> in contrattualistica. Inizia con il Check-Up Legale! 👋
               </p>
-              <div className="absolute -bottom-2 right-8 w-4 h-4 bg-surface rotate-45 shadow-sm" />
+              <div className="absolute -bottom-2 right-8 w-4 h-4 bg-surface/95 rotate-45" />
             </div>
-            <div className="w-16 h-16 rounded-full overflow-hidden shadow-primary-xl ring-4 ring-primary/20 cursor-pointer hover:scale-105 transition-transform">
-              <img src={heroImage} alt="Avv. Alberto Fazio" className="w-full h-full object-cover" width={64} height={64} />
+            <div className="w-[60px] h-[60px] rounded-full overflow-hidden shadow-primary-xl ring-[3px] ring-primary/15 cursor-pointer hover:scale-110 transition-transform duration-300">
+              <img src={heroImage} alt="Avv. Alberto Fazio" className="w-full h-full object-cover" width={60} height={60} />
             </div>
           </div>
         </div>

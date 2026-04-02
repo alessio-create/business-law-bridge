@@ -23,33 +23,33 @@ const ProblemsSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="px-6 py-24 md:px-20 md:py-28 bg-surface-container-low">
-      <div ref={ref} className="max-w-[680px] mx-auto">
+    <section className="px-6 py-24 md:px-20 md:py-32 bg-surface-container-low">
+      <div ref={ref} className="max-w-[640px] mx-auto">
         <span
-          className={`text-primary font-semibold text-[11px] uppercase tracking-label mb-4 block text-center transition-all duration-600 ${
+          className={`text-primary/70 font-semibold text-[11px] uppercase tracking-label mb-4 block text-center transition-all duration-700 ease-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
           Perché Affidarsi a un Esperto
         </span>
         <h2
-          className={`text-foreground text-[1.75rem] md:text-[2.25rem] font-black text-center text-balance mb-14 leading-tight transition-all duration-600 delay-150 ${
+          className={`text-foreground text-[1.625rem] md:text-[2.125rem] font-black text-center text-balance mb-16 leading-[1.12] transition-all duration-700 ease-out delay-150 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
           Un contratto ben fatto è il miglior investimento per la tua impresa
         </h2>
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-14">
           {points.map((p, i) => (
             <article
               key={p.title}
-              className={`transition-all duration-500 ${
+              className={`transition-all duration-600 ease-out ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
               style={{ transitionDelay: isVisible ? `${300 + i * 120}ms` : "0ms" }}
             >
-              <h3 className="text-foreground text-lg md:text-xl font-bold mb-2.5">{p.title}</h3>
-              <p className="text-muted-foreground text-[15px] leading-[1.75]">{p.text}</p>
+              <h3 className="text-foreground text-lg font-bold mb-2">{p.title}</h3>
+              <p className="text-muted-foreground text-[15px] leading-[1.8]">{p.text}</p>
             </article>
           ))}
         </div>

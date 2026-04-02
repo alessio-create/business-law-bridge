@@ -30,47 +30,47 @@ const FAQSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="faq" className="px-6 py-24 md:px-20 md:py-28 bg-surface-container-low">
-      <div ref={ref} className="max-w-2xl mx-auto">
+    <section id="faq" className="px-6 py-24 md:px-20 md:py-32 bg-surface-container-low">
+      <div ref={ref} className="max-w-[600px] mx-auto">
         <div className="text-center mb-14">
           <span
-            className={`text-primary font-semibold text-[11px] uppercase tracking-label mb-4 block transition-all duration-600 ${
+            className={`text-primary/70 font-semibold text-[11px] uppercase tracking-label mb-4 block transition-all duration-700 ease-out ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
             Domande Frequenti
           </span>
           <h2
-            className={`text-foreground text-[1.75rem] md:text-[2.25rem] font-black leading-tight transition-all duration-600 delay-150 ${
+            className={`text-foreground text-[1.625rem] md:text-[2.125rem] font-black leading-[1.12] transition-all duration-700 ease-out delay-150 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
             Hai qualche dubbio?
           </h2>
         </div>
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2.5">
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className={`px-7 py-5 rounded-2xl bg-surface cursor-pointer transition-all duration-500 ${
-                openIndex === i ? "shadow-ambient-md" : "shadow-ambient"
+              className={`px-6 py-4.5 rounded-xl bg-surface cursor-pointer transition-all duration-400 ease-out ${
+                openIndex === i ? "shadow-ambient-md" : "shadow-ambient hover:shadow-ambient-md"
               } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               style={{ transitionDelay: isVisible ? `${300 + i * 80}ms` : "0ms" }}
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
             >
-              <div className="flex items-center justify-between">
-                <span className="font-bold text-foreground text-[15px] pr-4">{faq.q}</span>
+              <div className="flex items-center justify-between py-1">
+                <span className="font-bold text-foreground text-[14px] pr-4 leading-snug">{faq.q}</span>
                 <ChevronDown
-                  className={`w-5 h-5 text-muted-foreground shrink-0 transition-transform duration-300 ${openIndex === i ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 text-muted-foreground/60 shrink-0 transition-transform duration-300 ease-out ${openIndex === i ? "rotate-180" : ""}`}
                 />
               </div>
               <div
-                className={`grid transition-all duration-300 ${
-                  openIndex === i ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0"
+                className={`grid transition-all duration-300 ease-out ${
+                  openIndex === i ? "grid-rows-[1fr] opacity-100 mt-3" : "grid-rows-[0fr] opacity-0"
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="text-muted-foreground text-[15px] leading-relaxed">{faq.a}</p>
+                  <p className="text-muted-foreground text-[14px] leading-[1.7] pb-1">{faq.a}</p>
                 </div>
               </div>
             </div>

@@ -10,12 +10,13 @@ const usps = [
 ];
 
 const USPTicker = () => (
-  <section className="bg-surface overflow-hidden py-4">
-    <div className="flex animate-ticker-reverse gap-10 hover:[animation-play-state:paused]">
+  <section className="bg-surface overflow-hidden py-3.5">
+    <div className="flex animate-ticker-reverse gap-12 hover:[animation-play-state:paused]">
       {[...usps, ...usps].map((u, i) => (
         <div key={i} className="flex items-center gap-2 shrink-0">
-          <u.icon className="w-4 h-4 text-primary" />
-          <span className="text-muted-foreground text-sm font-medium whitespace-nowrap">{u.text}</span>
+          <u.icon className="w-3.5 h-3.5 text-primary/60" />
+          <span className="text-muted-foreground text-[13px] font-medium whitespace-nowrap">{u.text}</span>
+          <span className="text-muted-foreground/25 text-[13px] ml-1">·</span>
         </div>
       ))}
     </div>

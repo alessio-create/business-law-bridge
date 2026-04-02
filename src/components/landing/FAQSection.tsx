@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const faqs = [
   {
@@ -26,15 +27,24 @@ const faqs = [
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="faq" className="px-6 py-20 md:px-20 bg-surface-container-low">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="text-primary font-bold text-xs uppercase tracking-label mb-3 block">
+    <section id="faq" className="px-6 py-24 md:px-20 md:py-28 bg-surface-container-low">
+      <div ref={ref} className="max-w-2xl mx-auto">
+        <div className="text-center mb-14">
+          <span
+            className={`text-primary font-semibold text-[11px] uppercase tracking-label mb-4 block transition-all duration-600 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
             Domande Frequenti
           </span>
-          <h2 className="text-foreground text-3xl md:text-4xl font-black">
+          <h2
+            className={`text-foreground text-[1.75rem] md:text-[2.25rem] font-black leading-tight transition-all duration-600 delay-150 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
+          >
             Hai qualche dubbio?
           </h2>
         </div>
@@ -42,20 +52,27 @@ const FAQSection = () => {
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className={`px-8 py-5 rounded-2xl bg-surface cursor-pointer transition-shadow ${
+              className={`px-7 py-5 rounded-2xl bg-surface cursor-pointer transition-all duration-500 ${
                 openIndex === i ? "shadow-ambient-md" : "shadow-ambient"
-              }`}
+              } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+              style={{ transitionDelay: isVisible ? `${300 + i * 80}ms` : "0ms" }}
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
             >
               <div className="flex items-center justify-between">
-                <span className="font-bold text-foreground pr-4">{faq.q}</span>
+                <span className="font-bold text-foreground text-[15px] pr-4">{faq.q}</span>
                 <ChevronDown
-                  className={`w-5 h-5 text-muted-foreground shrink-0 transition-transform ${openIndex === i ? "rotate-180" : ""}`}
+                  className={`w-5 h-5 text-muted-foreground shrink-0 transition-transform duration-300 ${openIndex === i ? "rotate-180" : ""}`}
                 />
               </div>
-              {openIndex === i && (
-                <p className="mt-4 text-muted-foreground leading-relaxed">{faq.a}</p>
-              )}
+              <div
+                className={`grid transition-all duration-300 ${
+                  openIndex === i ? "grid-rows-[1fr] opacity-100 mt-4" : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <p className="text-muted-foreground text-[15px] leading-relaxed">{faq.a}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

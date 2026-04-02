@@ -6,39 +6,45 @@
 
 @layer base {
   :root {
-    --background: 220 20% 97%;
-    --foreground: 215 35% 15%;
+    /* Midnight Slate Design System */
+    --background: 220 14% 96%;
+    --background-light: 220 12% 93%;
+    --foreground: 215 40% 16%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 35% 15%;
+    --card-foreground: 215 40% 16%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 35% 15%;
+    --popover-foreground: 215 40% 16%;
 
-    --primary: 215 42% 18%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary Authority: #192a43 */
+    --primary: 215 45% 18%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 25% 95%;
-    --secondary-foreground: 215 42% 18%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 215 45% 18%;
 
-    --muted: 210 25% 95%;
-    --muted-foreground: 215 12% 46%;
+    --muted: 220 12% 93%;
+    --muted-foreground: 215 12% 50%;
 
-    --accent: 210 25% 95%;
-    --accent-foreground: 215 42% 18%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 215 45% 18%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 215 42% 18%;
+    --border: 220 13% 91%;
+    --input: 220 13% 88%;
+    --ring: 215 45% 18%;
 
     --radius: 0.5rem;
 
-    --navy: 215 42% 18%;
+    /* Extended palette */
+    --navy: 215 45% 18%;
     --navy-light: 215 30% 30%;
-    --surface-warm: 40 20% 97%;
+    --surface: 0 0% 100%;
+    --surface-container-low: 220 14% 96%;
+    --surface-container: 220 12% 93%;
     --gold: 38 80% 55%;
 
     --sidebar-background: 0 0% 98%;
@@ -53,13 +59,14 @@
 
   .dark {
     --background: 220 20% 7%;
+    --background-light: 220 18% 10%;
     --foreground: 210 40% 98%;
     --card: 220 20% 10%;
     --card-foreground: 210 40% 98%;
     --popover: 220 20% 10%;
     --popover-foreground: 210 40% 98%;
     --primary: 210 40% 98%;
-    --primary-foreground: 215 42% 18%;
+    --primary-foreground: 215 45% 18%;
     --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217 33% 17%;
@@ -71,6 +78,9 @@
     --border: 217 33% 17%;
     --input: 217 33% 17%;
     --ring: 213 27% 84%;
+    --surface: 220 20% 10%;
+    --surface-container-low: 220 18% 13%;
+    --surface-container: 220 16% 16%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -87,12 +97,18 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3 {
+    letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .tracking-label {
+    letter-spacing: 0.1em;
   }
 }

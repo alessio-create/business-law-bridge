@@ -1,9 +1,9 @@
 import { Star } from "lucide-react";
 
 const GoogleReviewsStrip = () => (
-  <section className="px-6 py-8 md:px-20 bg-background">
+  <section className="px-6 py-10 md:px-20 bg-surface-container-low">
     <div className="max-w-[1200px] mx-auto flex justify-center">
-      <div className="flex items-center gap-4 bg-card border border-border rounded-2xl px-8 py-5 shadow-sm">
+      <div className="flex items-center gap-4 bg-surface rounded-2xl px-8 py-5 shadow-ambient">
         <div className="flex gap-0.5">
           {[1, 2, 3, 4, 5].map((i) => (
             <Star key={i} className="w-5 h-5 fill-gold text-gold" />

@@ -34,7 +34,7 @@ const Optin = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-1 px-6 py-12 md:py-20 bg-background">
+      <main className="flex-1 px-6 py-12 md:py-20 bg-surface-container-low">
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="flex flex-col gap-8">
             <div>
@@ -45,14 +45,14 @@ const Optin = () => {
               <h1 className="text-foreground text-3xl font-black mb-3">
                 Ottimo! Dicci chi sei.
               </h1>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-muted-foreground text-lg leading-relaxed">
                 Lascia i tuoi dati per accedere alla prenotazione del check-up gratuito di 30 minuti.
               </p>
             </div>
 
             {answers.length > 0 && (
-              <div className="bg-card border border-border rounded-2xl p-6">
-                <h3 className="font-bold text-foreground mb-4 text-sm uppercase tracking-widest">Le tue risposte</h3>
+              <div className="bg-surface rounded-2xl p-6 shadow-ambient">
+                <h3 className="font-bold text-foreground mb-4 text-xs uppercase tracking-label">Le tue risposte</h3>
                 <div className="flex flex-col gap-3 text-sm">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Tipo contratto</span>
@@ -76,24 +76,30 @@ const Optin = () => {
 
             <div className="flex flex-col gap-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-3">
-                <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                <div className="p-1 bg-primary/10 rounded-full">
+                  <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                </div>
                 Consulenza gratuita di 30 minuti
               </div>
               <div className="flex items-center gap-3">
-                <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                <div className="p-1 bg-primary/10 rounded-full">
+                  <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                </div>
                 Preventivo scritto incluso
               </div>
               <div className="flex items-center gap-3">
-                <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                <div className="p-1 bg-primary/10 rounded-full">
+                  <CheckCircle className="w-4 h-4 text-primary shrink-0" />
+                </div>
                 Nessun impegno o obbligo
               </div>
             </div>
           </div>
 
           <div>
-            <form onSubmit={handleSubmit} className="bg-card border border-border rounded-2xl p-8 flex flex-col gap-6">
+            <form onSubmit={handleSubmit} className="bg-surface rounded-2xl p-8 flex flex-col gap-6 shadow-ambient-md">
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-foreground">Nome e Cognome *</label>
+                <label className="text-sm font-bold text-foreground">Nome e Cognome *</label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <input
@@ -103,13 +109,13 @@ const Optin = () => {
                     value={name}
                     onChange={e => setName(e.target.value)}
                     placeholder="Mario Rossi"
-                    className="w-full h-12 pl-11 pr-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full h-12 pl-11 pr-4 rounded-lg bg-surface-container-low text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-foreground">Email aziendale *</label>
+                <label className="text-sm font-bold text-foreground">Email aziendale *</label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <input
@@ -119,13 +125,13 @@ const Optin = () => {
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     placeholder="mario@azienda.it"
-                    className="w-full h-12 pl-11 pr-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full h-12 pl-11 pr-4 rounded-lg bg-surface-container-low text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-foreground">Nome Azienda</label>
+                <label className="text-sm font-bold text-foreground">Nome Azienda</label>
                 <div className="relative">
                   <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                   <input
@@ -134,14 +140,14 @@ const Optin = () => {
                     value={company}
                     onChange={e => setCompany(e.target.value)}
                     placeholder="Azienda S.r.l."
-                    className="w-full h-12 pl-11 pr-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full h-12 pl-11 pr-4 rounded-lg bg-surface-container-low text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
               </div>
 
               <button
                 type="submit"
-                className="flex items-center justify-center gap-2 w-full h-14 rounded-lg bg-primary text-primary-foreground text-base font-bold hover:opacity-90 transition-opacity"
+                className="flex items-center justify-center gap-2 w-full h-14 rounded-lg bg-primary text-primary-foreground text-base font-bold shadow-primary-lg hover:scale-[1.02] transition-transform"
               >
                 Vai alla prenotazione
                 <ArrowRight className="w-5 h-5" />

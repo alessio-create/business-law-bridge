@@ -13,30 +13,22 @@ const reviews = [
   { name: "Chiara F.", text: "Zero sorprese sui costi. Trasparenza totale dall'inizio alla fine." },
 ];
 
-const ReviewCard = ({ name, text }: { name: string; text: string }) => (
-  <div className="flex flex-col gap-2.5 bg-surface rounded-xl px-5 py-4 shadow-ambient min-w-[280px] max-w-[320px] shrink-0">
-    <div className="flex items-center gap-3">
-      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-        <span className="text-primary font-bold text-xs">{name.charAt(0)}</span>
-      </div>
-      <div>
-        <p className="text-foreground text-sm font-semibold">{name}</p>
-        <div className="flex gap-0.5">
-          {[1, 2, 3, 4, 5].map((s) => (
-            <Star key={s} className="w-3 h-3 fill-gold text-gold" />
-          ))}
-        </div>
-      </div>
-    </div>
-    <p className="text-muted-foreground text-sm leading-relaxed">{text}</p>
-  </div>
-);
-
 const GoogleReviewsStrip = () => (
-  <section className="bg-surface-container-low overflow-hidden py-6">
-    <div className="flex animate-ticker gap-5 hover:[animation-play-state:paused]">
+  <section className="bg-surface-container-low overflow-hidden py-4">
+    <div className="flex animate-ticker gap-8 hover:[animation-play-state:paused]">
       {[...reviews, ...reviews].map((r, i) => (
-        <ReviewCard key={i} name={r.name} text={r.text} />
+        <div key={i} className="flex items-center gap-3 shrink-0">
+          <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center">
+            <span className="text-primary font-bold text-[10px]">{r.name.charAt(0)}</span>
+          </div>
+          <span className="text-foreground text-sm font-semibold whitespace-nowrap">{r.name}</span>
+          <div className="flex gap-0.5">
+            {[1, 2, 3, 4, 5].map((s) => (
+              <Star key={s} className="w-3 h-3 fill-gold text-gold" />
+            ))}
+          </div>
+          <span className="text-muted-foreground text-sm whitespace-nowrap">{r.text}</span>
+        </div>
       ))}
     </div>
   </section>

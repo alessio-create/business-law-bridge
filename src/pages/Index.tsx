@@ -17,9 +17,8 @@ const Index = () => (
       <GoogleReviewsStrip />
       <ProblemsSection />
       <ValuesSection />
-      
-      <FAQSection />
       <TestimonialsSection />
+      <FAQSection />
       <CTASection />
     </main>
     <Footer />

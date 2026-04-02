@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Midnight Slate Design System */
+    /* Midnight Slate Design System — Premium */
     --background: 220 14% 96%;
     --background-light: 220 12% 93%;
     --foreground: 215 40% 16%;
@@ -25,7 +25,7 @@
     --secondary-foreground: 215 45% 18%;
 
     --muted: 220 12% 93%;
-    --muted-foreground: 215 12% 50%;
+    --muted-foreground: 215 12% 46%;
 
     --accent: 220 14% 96%;
     --accent-foreground: 215 45% 18%;
@@ -37,15 +37,15 @@
     --input: 220 13% 88%;
     --ring: 215 45% 18%;
 
-    --radius: 0.5rem;
+    --radius: 0.625rem;
 
     /* Extended palette */
     --navy: 215 45% 18%;
     --navy-light: 215 30% 30%;
     --surface: 0 0% 100%;
-    --surface-container-low: 220 14% 96%;
+    --surface-container-low: 220 14% 97%;
     --surface-container: 220 12% 93%;
-    --gold: 38 80% 55%;
+    --gold: 40 85% 52%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -98,9 +98,15 @@
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   h1, h2, h3 {
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+  }
+  h1 {
+    letter-spacing: -0.035em;
   }
 }
 
@@ -109,6 +115,17 @@
     text-wrap: balance;
   }
   .tracking-label {
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
   }
+}
+
+/* Premium smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: hsl(215 45% 18% / 0.12);
+  color: hsl(215 45% 18%);
 }

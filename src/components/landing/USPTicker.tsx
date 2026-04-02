@@ -11,7 +11,7 @@ const usps = [
 
 const USPTicker = () => (
   <section className="bg-surface overflow-hidden py-4">
-    <div className="flex animate-ticker gap-10 hover:[animation-play-state:paused]">
+    <div className="flex animate-ticker-reverse gap-10 hover:[animation-play-state:paused]">
       {[...usps, ...usps].map((u, i) => (
         <div key={i} className="flex items-center gap-2 shrink-0">
           <u.icon className="w-4 h-4 text-primary" />

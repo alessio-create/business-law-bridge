@@ -10,7 +10,7 @@ const usps = [
 ];
 
 const USPTicker = () => (
-  <section className="bg-surface-container-low overflow-hidden py-4">
+  <section className="bg-surface overflow-hidden py-4">
     <div className="flex animate-ticker gap-10 hover:[animation-play-state:paused]">
       {[...usps, ...usps].map((u, i) => (
         <div key={i} className="flex items-center gap-2 shrink-0">

@@ -24,10 +24,10 @@ const problems = [
 ];
 
 const ProblemsSection = () => (
-  <section className="px-6 py-20 md:px-20 bg-background">
+  <section className="px-6 py-20 md:px-20 bg-surface-container-low">
     <div className="max-w-[1200px] mx-auto">
       <div className="text-center mb-16">
-        <span className="text-primary font-bold text-xs uppercase tracking-widest mb-3 block">
+        <span className="text-primary font-bold text-xs uppercase tracking-label mb-3 block">
           Perché Serve un Esperto
         </span>
         <h2 className="text-foreground text-3xl md:text-4xl font-black max-w-2xl mx-auto text-balance">
@@ -38,7 +38,7 @@ const ProblemsSection = () => (
         {problems.map((p) => (
           <div
             key={p.title}
-            className="flex gap-5 rounded-2xl border border-border bg-card p-8 hover:border-destructive/40 transition-colors"
+            className="flex gap-5 rounded-2xl bg-surface p-8 shadow-ambient hover:shadow-ambient-md transition-shadow"
           >
             <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-xl bg-destructive/10 text-destructive">
               <p.icon className="w-5 h-5" />

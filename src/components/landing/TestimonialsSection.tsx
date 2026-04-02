@@ -19,10 +19,10 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => (
-  <section className="px-6 py-20 md:px-20 bg-card">
+  <section className="px-6 py-20 md:px-20 bg-surface-container-low">
     <div className="max-w-[1200px] mx-auto">
       <div className="text-center mb-16">
-        <span className="text-primary font-bold text-xs uppercase tracking-widest mb-3 block">
+        <span className="text-primary font-bold text-xs uppercase tracking-label mb-3 block">
           Cosa Dicono i Clienti
         </span>
         <h2 className="text-foreground text-3xl md:text-4xl font-black">
@@ -31,7 +31,7 @@ const TestimonialsSection = () => (
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {testimonials.map((t) => (
-          <div key={t.name} className="bg-background rounded-2xl border border-border p-8 flex flex-col gap-6">
+          <div key={t.name} className="bg-surface rounded-2xl p-8 flex flex-col gap-6 shadow-ambient hover:shadow-ambient-md transition-shadow">
             <Quote className="w-8 h-8 text-primary/20" />
             <p className="text-foreground leading-relaxed flex-1">"{t.text}"</p>
             <div className="flex gap-0.5 mb-2">

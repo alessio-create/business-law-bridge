@@ -20,9 +20,14 @@ const HeroSection = () => (
             </p>
           </div>
 
-          <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-            <Shield className="w-4 h-4 text-primary" />
-            <span>Cassazionista — 28+ anni di esperienza</span>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              to="/quiz"
+              className="flex items-center gap-2 rounded-lg h-14 px-8 bg-primary text-primary-foreground text-base font-bold shadow-primary-lg hover:scale-[1.02] transition-transform"
+            >
+              Check-up Legale Gratuito
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
 
           <div className="flex flex-wrap gap-4">

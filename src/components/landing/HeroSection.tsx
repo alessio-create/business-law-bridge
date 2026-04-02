@@ -6,11 +6,19 @@ import { useState, useEffect } from "react";
 const HeroSection = () => {
   const [showBubble, setShowBubble] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowBubble(true), 3000);
-    return () => clearTimeout(timer);
-  }, []);
+    const handleScroll = () => {
+      const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+      if (scrollPercent >= 0.3 && !visible) {
+        setVisible(true);
+        setTimeout(() => setShowBubble(true), 1500);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [visible]);
 
   return (
     <section className="bg-surface">

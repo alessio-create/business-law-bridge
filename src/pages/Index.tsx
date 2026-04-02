@@ -5,7 +5,7 @@ import ProblemsSection from "@/components/landing/ProblemsSection";
 import ValuesSection from "@/components/landing/ValuesSection";
 
 import FAQSection from "@/components/landing/FAQSection";
-import TestimonialsSection from "@/components/landing/TestimonialsSection";
+import QualificationSection from "@/components/landing/QualificationSection";
 import CTASection from "@/components/landing/CTASection";
 import Footer from "@/components/landing/Footer";
 
@@ -17,7 +17,7 @@ const Index = () => (
       <GoogleReviewsStrip />
       <ValuesSection />
       <ProblemsSection />
-      <TestimonialsSection />
+      <QualificationSection />
       <FAQSection />
       <CTASection />
     </main>

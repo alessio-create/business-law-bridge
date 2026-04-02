@@ -1,10 +1,11 @@
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroSection";
-import ServicesSection from "@/components/landing/ServicesSection";
-import TransparencySection from "@/components/landing/TransparencySection";
-import CaseStudiesSection from "@/components/landing/CaseStudiesSection";
+import GoogleReviewsStrip from "@/components/landing/GoogleReviewsStrip";
+import ProblemsSection from "@/components/landing/ProblemsSection";
+import ValuesSection from "@/components/landing/ValuesSection";
 import ProcessSection from "@/components/landing/ProcessSection";
 import FAQSection from "@/components/landing/FAQSection";
+import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import CTASection from "@/components/landing/CTASection";
 import Footer from "@/components/landing/Footer";
 
@@ -13,11 +14,12 @@ const Index = () => (
     <Navbar />
     <main className="flex-1">
       <HeroSection />
-      <ServicesSection />
-      <TransparencySection />
-      <CaseStudiesSection />
+      <GoogleReviewsStrip />
+      <ProblemsSection />
+      <ValuesSection />
       <ProcessSection />
       <FAQSection />
+      <TestimonialsSection />
       <CTASection />
     </main>
     <Footer />

@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     q: "Quanto costa il check-up legale?",
-    a: "Il check-up iniziale di 30 minuti è completamente gratuito e senza impegno. Serve a capire se possiamo aiutarti e come.",
+    a: "Il check-up iniziale di 30 minuti è completamente gratuito e senza impegno. Serve a capire se i tuoi contratti ti proteggono davvero.",
   },
   {
     q: "Lavorate solo con aziende di Trento?",
@@ -12,15 +12,15 @@ const faqs = [
   },
   {
     q: "Come funziona il preventivo scritto?",
-    a: "Dopo il check-up, ricevi un documento con l'analisi del caso, la strategia proposta, i costi dettagliati e i tempi stimati. Nessuna sorpresa, nessun costo nascosto.",
+    a: "Dopo il check-up, ricevi un documento con l'analisi dei tuoi contratti, la strategia proposta, i costi dettagliati e i tempi stimati. Nessuna sorpresa.",
   },
   {
     q: "Posso cambiare avvocato in corso d'opera?",
     a: "Assolutamente sì. Se hai già un avvocato, possiamo subentrare in qualsiasi momento. Analizzeremo lo stato della pratica e ti diremo come procedere.",
   },
   {
-    q: "Quali sono i tempi medi per il recupero crediti?",
-    a: "In fase stragiudiziale, il 70% dei casi si risolve entro 45 giorni. La fase giudiziale dipende dai tempi dei tribunali, ma agiamo per ottenere decreti ingiuntivi provvisoriamente esecutivi.",
+    q: "Che tipo di contratti gestite?",
+    a: "Contratti di fornitura, appalto, distribuzione, partnership, SaaS, licenza, franchising, subappalto e qualsiasi accordo commerciale tra imprese.",
   },
 ];
 

@@ -14,7 +14,7 @@ const reviews = [
 ];
 
 const ReviewCard = ({ name, text }: { name: string; text: string }) => (
-  <div className="flex flex-col gap-2 bg-surface rounded-xl px-5 py-4 shadow-ambient min-w-[280px] max-w-[320px] shrink-0">
+  <div className="flex flex-col gap-2.5 bg-surface rounded-xl px-5 py-4 shadow-ambient min-w-[280px] max-w-[320px] shrink-0">
     <div className="flex items-center gap-3">
       <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
         <span className="text-primary font-bold text-xs">{name.charAt(0)}</span>

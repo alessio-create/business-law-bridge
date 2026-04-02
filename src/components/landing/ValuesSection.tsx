@@ -1,4 +1,5 @@
-import { CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+import { CheckCircle, ArrowRight } from "lucide-react";
 import valuesIllustration from "@/assets/values-illustration.png";
 
 const values = [

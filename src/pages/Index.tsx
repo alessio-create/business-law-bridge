@@ -15,8 +15,8 @@ const Index = () => (
     <main className="flex-1">
       <HeroSection />
       <GoogleReviewsStrip />
-      <ProblemsSection />
       <ValuesSection />
+      <ProblemsSection />
       <TestimonialsSection />
       <FAQSection />
       <CTASection />

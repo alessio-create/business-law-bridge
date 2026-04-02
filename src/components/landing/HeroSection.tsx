@@ -44,8 +44,8 @@ const HeroSection = () => {
       </div>
 
       {/* Floating avatar circle */}
-      {!dismissed && (
-        <div className="hidden lg:block fixed bottom-8 right-8 z-50">
+      {visible && !dismissed && (
+        <div className="hidden lg:block fixed bottom-8 right-8 z-50 animate-fade-in">
           <div className="relative">
             <div
               className={`absolute bottom-full right-0 mb-3 w-72 bg-surface rounded-2xl shadow-ambient-md p-4 transition-all duration-500 ${

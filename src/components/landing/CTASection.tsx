@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Star, FileCheck } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const CTASection = () => {

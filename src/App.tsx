@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import Quiz from "./pages/Quiz.tsx";
+import Optin from "./pages/Optin.tsx";
 import Booking from "./pages/Booking.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
@@ -19,6 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/quiz" element={<Quiz />} />
+          <Route path="/optin" element={<Optin />} />
           <Route path="/prenota" element={<Booking />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

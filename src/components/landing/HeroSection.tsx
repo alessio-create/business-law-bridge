@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import heroImage from "@/assets/hero-lawyer.jpg";
 import { useState, useEffect } from "react";
 
 const HeroSection = () => {
   const [showBubble, setShowBubble] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setShowBubble(true), 3000);
@@ -35,36 +36,45 @@ const HeroSection = () => {
       </div>
 
       {/* Floating avatar circle */}
-      <div className="hidden lg:block fixed bottom-8 right-8 z-50">
-        <div className="relative">
-          {/* Speech bubble */}
-          <div
-            className={`absolute bottom-full right-0 mb-3 w-72 bg-surface rounded-2xl shadow-ambient-md p-4 transition-all duration-500 ${
-              showBubble
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4 pointer-events-none"
-            }`}
-          >
-            <p className="text-foreground text-sm leading-relaxed">
-              Sono l'Avv. <strong>Alberto Fazio</strong>, Cassazionista con{" "}
-              <strong>28 anni di esperienza</strong> in contrattualistica. Posso aiutarti! 👋
-            </p>
-            {/* Bubble tail */}
-            <div className="absolute -bottom-2 right-8 w-4 h-4 bg-surface rotate-45 shadow-sm" />
-          </div>
+      {!dismissed && (
+        <div className="hidden lg:block fixed bottom-8 right-8 z-50">
+          <div className="relative">
+            {/* Speech bubble */}
+            <div
+              className={`absolute bottom-full right-0 mb-3 w-72 bg-surface rounded-2xl shadow-ambient-md p-4 transition-all duration-500 ${
+                showBubble
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4 pointer-events-none"
+              }`}
+            >
+              <button
+                onClick={() => setDismissed(true)}
+                className="absolute top-2 right-2 p-1 rounded-full hover:bg-muted/50 transition-colors"
+                aria-label="Chiudi"
+              >
+                <X className="w-3.5 h-3.5 text-muted-foreground" />
+              </button>
+              <p className="text-foreground text-sm leading-relaxed pr-5">
+                Sono l'Avv. <strong>Alberto Fazio</strong>, Cassazionista con{" "}
+                <strong>28 anni di esperienza</strong> in contrattualistica. Inizia con il Check-Up Legale! 👋
+              </p>
+              {/* Bubble tail */}
+              <div className="absolute -bottom-2 right-8 w-4 h-4 bg-surface rotate-45 shadow-sm" />
+            </div>
 
-          {/* Avatar */}
-          <div className="w-16 h-16 rounded-full overflow-hidden shadow-primary-xl ring-4 ring-primary/20 cursor-pointer hover:scale-105 transition-transform">
-            <img
-              src={heroImage}
-              alt="Avv. Alberto Fazio"
-              className="w-full h-full object-cover"
-              width={64}
-              height={64}
-            />
+            {/* Avatar */}
+            <div className="w-16 h-16 rounded-full overflow-hidden shadow-primary-xl ring-4 ring-primary/20 cursor-pointer hover:scale-105 transition-transform">
+              <img
+                src={heroImage}
+                alt="Avv. Alberto Fazio"
+                className="w-full h-full object-cover"
+                width={64}
+                height={64}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Diagonal cut */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">

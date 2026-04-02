@@ -3,6 +3,7 @@ import HeroSection from "@/components/landing/HeroSection";
 import GoogleReviewsStrip from "@/components/landing/GoogleReviewsStrip";
 import ProblemsSection from "@/components/landing/ProblemsSection";
 import ValuesSection from "@/components/landing/ValuesSection";
+import USPTicker from "@/components/landing/USPTicker";
 
 import FAQSection from "@/components/landing/FAQSection";
 import QualificationSection from "@/components/landing/QualificationSection";
@@ -16,6 +17,7 @@ const Index = () => (
       <HeroSection />
       <GoogleReviewsStrip />
       <ValuesSection />
+      <USPTicker />
       <ProblemsSection />
       <QualificationSection />
       <FAQSection />

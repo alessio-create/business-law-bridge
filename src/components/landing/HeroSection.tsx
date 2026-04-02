@@ -1,66 +1,79 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Award } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-lawyer.jpg";
+import { useState, useEffect } from "react";
 
-const HeroSection = () => (
-  <section className="relative bg-surface overflow-hidden">
-    <div className="px-6 py-10 md:px-20 md:py-16">
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        {/* Text — asymmetric left */}
-        <div className="flex flex-col gap-8 z-10">
-          <div className="flex flex-col gap-5">
-            <span className="text-primary font-bold tracking-label uppercase text-xs">
-              Avvocato d'Impresa — Contrattualistica
-            </span>
-            <h1 className="text-foreground text-4xl md:text-[3.75rem] font-black leading-[1.08] text-balance">
-              I tuoi contratti ti proteggono <em className="not-italic text-navy-light">davvero</em>?
-            </h1>
-            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-lg">
-              Contratti chiari, blindati, su misura per la tua impresa. Preventivo scritto prima di iniziare. Sempre.
-            </p>
-          </div>
+const HeroSection = () => {
+  const [showBubble, setShowBubble] = useState(false);
 
-          <div className="flex flex-wrap gap-4">
-            <Link
-              to="/quiz"
-              className="flex items-center gap-2 rounded-lg h-14 px-8 bg-primary text-primary-foreground text-base font-bold shadow-primary-lg hover:scale-[1.02] transition-transform"
-            >
-              Check-up Legale Gratuito
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
+  useEffect(() => {
+    const timer = setTimeout(() => setShowBubble(true), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
+  return (
+    <section className="relative bg-surface overflow-hidden">
+      <div className="px-6 py-16 md:px-20 md:py-24">
+        <div className="max-w-[800px] mx-auto flex flex-col items-center text-center gap-8">
+          <span className="text-primary font-bold tracking-label uppercase text-xs">
+            Avvocato d'Impresa — Contrattualistica
+          </span>
+          <h1 className="text-foreground text-4xl md:text-[3.75rem] font-black leading-[1.08] text-balance">
+            I tuoi contratti ti proteggono <em className="not-italic text-navy-light">davvero</em>?
+          </h1>
+          <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-xl">
+            Contratti chiari, blindati, su misura per la tua impresa. Preventivo scritto prima di iniziare. Sempre.
+          </p>
+          <Link
+            to="/quiz"
+            className="flex items-center gap-2 rounded-lg h-14 px-8 bg-primary text-primary-foreground text-base font-bold shadow-primary-lg hover:scale-[1.02] transition-transform"
+          >
+            Check-up Legale Gratuito
+            <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
+      </div>
 
-        {/* Image — overlapping right */}
+      {/* Floating avatar circle */}
+      <div className="hidden lg:block fixed bottom-8 right-8 z-50">
         <div className="relative">
-          <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-primary-xl">
+          {/* Speech bubble */}
+          <div
+            className={`absolute bottom-full right-0 mb-3 w-72 bg-surface rounded-2xl shadow-ambient-md p-4 transition-all duration-500 ${
+              showBubble
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4 pointer-events-none"
+            }`}
+          >
+            <p className="text-foreground text-sm leading-relaxed">
+              Sono l'Avv. <strong>Alberto Fazio</strong>, Cassazionista con{" "}
+              <strong>28 anni di esperienza</strong> in contrattualistica. Posso aiutarti! 👋
+            </p>
+            {/* Bubble tail */}
+            <div className="absolute -bottom-2 right-8 w-4 h-4 bg-surface rotate-45 shadow-sm" />
+          </div>
+
+          {/* Avatar */}
+          <div className="w-16 h-16 rounded-full overflow-hidden shadow-primary-xl ring-4 ring-primary/20 cursor-pointer hover:scale-105 transition-transform">
             <img
               src={heroImage}
-              alt="Avvocato Alberto Fazio nello studio legale"
+              alt="Avv. Alberto Fazio"
               className="w-full h-full object-cover"
-              width={1024}
-              height={1024}
+              width={64}
+              height={64}
             />
-          </div>
-          {/* Floating badge with glass effect */}
-          <div className="absolute -bottom-6 -left-6 bg-surface/90 backdrop-blur-xl p-5 rounded-xl shadow-ambient-md hidden md:flex items-center gap-4">
-            <div className="p-3 bg-primary/10 rounded-full">
-              <Award className="w-6 h-6 text-primary" />
-            </div>
-            <p className="text-base font-bold text-foreground">Cassazionista — 28+ anni di esperienza</p>
           </div>
         </div>
       </div>
-    </div>
 
-    {/* Diagonal cut */}
-    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-      <svg viewBox="0 0 1200 80" preserveAspectRatio="none" className="w-full h-12 md:h-20">
-        <polygon fill="hsl(var(--surface-container-low))" points="0,80 1200,80 1200,0" />
-      </svg>
-    </div>
-  </section>
-);
+      {/* Diagonal cut */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+        <svg viewBox="0 0 1200 80" preserveAspectRatio="none" className="w-full h-12 md:h-20">
+          <polygon fill="hsl(var(--surface-container-low))" points="0,80 1200,80 1200,0" />
+        </svg>
+      </div>
+    </section>
+  );
+};
 
 export default HeroSection;

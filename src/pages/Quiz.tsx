@@ -11,14 +11,14 @@ interface QuizAnswer {
 
 const questions = [
   {
-    title: "Qual è la tua esigenza legale principale?",
-    subtitle: "Seleziona l'area che ti interessa di più.",
+    title: "Di che tipo di contratto hai bisogno?",
+    subtitle: "Seleziona l'area più vicina alla tua situazione.",
     options: [
-      { label: "Contrattualistica", desc: "Ho bisogno di redigere o revisionare contratti" },
-      { label: "Recupero Crediti", desc: "Ho fatture non pagate o clienti insolventi" },
-      { label: "Crisi d'Impresa", desc: "La mia azienda sta attraversando difficoltà finanziarie" },
-      { label: "Contenzioso Commerciale", desc: "Ho una disputa legale in corso o imminente" },
-      { label: "Altro / Non sono sicuro", desc: "Vorrei un check-up generale della mia situazione" },
+      { label: "Contratti di fornitura", desc: "Acquisti, materie prime, rapporti con fornitori" },
+      { label: "Contratti di appalto / subappalto", desc: "Lavori, servizi, costruzioni" },
+      { label: "Contratti commerciali e distribuzione", desc: "Partnership, franchising, agenti, distributori" },
+      { label: "Contratti IT / SaaS / licenza", desc: "Software, servizi digitali, proprietà intellettuale" },
+      { label: "Revisione contratti esistenti", desc: "Voglio far controllare contratti che ho già in uso" },
     ],
   },
   {
@@ -35,7 +35,7 @@ const questions = [
     title: "Quanto è urgente la tua situazione?",
     subtitle: "Così organizziamo le priorità.",
     options: [
-      { label: "Urgente", desc: "Ho una scadenza imminente o un problema critico" },
+      { label: "Urgente", desc: "Ho una scadenza imminente o devo firmare a breve" },
       { label: "Entro 30 giorni", desc: "Non è urgentissimo ma vorrei muovermi presto" },
       { label: "Sto valutando", desc: "Voglio informarmi prima di prendere decisioni" },
     ],
@@ -66,9 +66,8 @@ const Quiz = () => {
     if (step < questions.length - 1) {
       setStep(step + 1);
     } else {
-      // Store answers and go to booking
       sessionStorage.setItem("quizAnswers", JSON.stringify(newAnswers));
-      navigate("/prenota");
+      navigate("/optin");
     }
   };
 
@@ -88,7 +87,6 @@ const Quiz = () => {
       <Navbar />
       <main className="flex-1 flex items-center justify-center px-6 py-12 md:py-20 bg-background">
         <div className="w-full max-w-2xl">
-          {/* Progress bar */}
           <div className="mb-8">
             <div className="flex justify-between text-sm text-muted-foreground mb-2">
               <span>Domanda {step + 1} di {questions.length}</span>
@@ -102,13 +100,11 @@ const Quiz = () => {
             </div>
           </div>
 
-          {/* Question */}
           <div className="mb-8">
             <h1 className="text-foreground text-2xl md:text-3xl font-black mb-2">{current.title}</h1>
             <p className="text-muted-foreground">{current.subtitle}</p>
           </div>
 
-          {/* Options */}
           <div className="flex flex-col gap-3 mb-8">
             {current.options.map((opt) => (
               <button
@@ -133,7 +129,6 @@ const Quiz = () => {
             ))}
           </div>
 
-          {/* Navigation */}
           <div className="flex justify-between">
             <button
               onClick={handleBack}
@@ -148,7 +143,7 @@ const Quiz = () => {
               disabled={!selected}
               className="flex items-center gap-2 px-8 h-12 rounded-lg bg-primary text-primary-foreground font-bold hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              {step === questions.length - 1 ? "Vedi risultati" : "Avanti"}
+              {step === questions.length - 1 ? "Continua" : "Avanti"}
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

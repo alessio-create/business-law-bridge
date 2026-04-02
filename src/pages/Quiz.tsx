@@ -85,14 +85,14 @@ const Quiz = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-1 flex items-center justify-center px-6 py-12 md:py-20 bg-background">
+      <main className="flex-1 flex items-center justify-center px-6 py-12 md:py-20 bg-surface-container-low">
         <div className="w-full max-w-2xl">
           <div className="mb-8">
             <div className="flex justify-between text-sm text-muted-foreground mb-2">
-              <span>Domanda {step + 1} di {questions.length}</span>
-              <span>{Math.round(progress)}%</span>
+              <span className="font-bold text-xs uppercase tracking-label">Domanda {step + 1} di {questions.length}</span>
+              <span className="font-bold">{Math.round(progress)}%</span>
             </div>
-            <div className="h-2 bg-secondary rounded-full overflow-hidden">
+            <div className="h-2 bg-surface-container rounded-full overflow-hidden">
               <div
                 className="h-full bg-primary rounded-full transition-all duration-500"
                 style={{ width: `${progress}%` }}
@@ -102,7 +102,7 @@ const Quiz = () => {
 
           <div className="mb-8">
             <h1 className="text-foreground text-2xl md:text-3xl font-black mb-2">{current.title}</h1>
-            <p className="text-muted-foreground">{current.subtitle}</p>
+            <p className="text-muted-foreground leading-relaxed">{current.subtitle}</p>
           </div>
 
           <div className="flex flex-col gap-3 mb-8">
@@ -110,10 +110,10 @@ const Quiz = () => {
               <button
                 key={opt.label}
                 onClick={() => setSelected(opt.label)}
-                className={`w-full text-left p-5 rounded-xl border-2 transition-all ${
+                className={`w-full text-left p-5 rounded-xl transition-all ${
                   selected === opt.label
-                    ? "border-primary bg-primary/5"
-                    : "border-border bg-card hover:border-primary/40"
+                    ? "bg-primary/5 shadow-ambient-md ring-2 ring-primary"
+                    : "bg-surface shadow-ambient hover:shadow-ambient-md"
                 }`}
               >
                 <div className="flex items-center justify-between">
@@ -141,7 +141,7 @@ const Quiz = () => {
             <button
               onClick={handleNext}
               disabled={!selected}
-              className="flex items-center gap-2 px-8 h-12 rounded-lg bg-primary text-primary-foreground font-bold hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-8 h-14 rounded-lg bg-primary text-primary-foreground font-bold shadow-primary-lg hover:scale-[1.02] transition-transform disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
             >
               {step === questions.length - 1 ? "Continua" : "Avanti"}
               <ArrowRight className="w-4 h-4" />

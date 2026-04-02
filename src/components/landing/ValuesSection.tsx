@@ -50,14 +50,14 @@ const ValuesSection = () => (
           <div className="flex gap-4 mt-2">
             <Link
               to="/quiz"
-              className="inline-flex items-center gap-2 rounded-lg h-12 px-6 bg-primary text-primary-foreground text-sm font-bold shadow-primary-lg hover:scale-[1.02] transition-transform"
+              className="group inline-flex items-center gap-2 rounded-lg h-12 px-6 bg-primary text-primary-foreground text-sm font-bold shadow-primary-lg hover:scale-[1.04] hover:shadow-primary-xl active:scale-[0.98] transition-all duration-200"
             >
               No, voglio verificare
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
             <Link
               to="/quiz"
-              className="inline-flex items-center gap-2 rounded-lg h-12 px-6 bg-surface-container-low text-foreground text-sm font-bold shadow-ambient hover:shadow-ambient-md transition-shadow"
+              className="inline-flex items-center gap-2 rounded-lg h-12 px-6 bg-surface-container-low text-foreground text-sm font-bold shadow-ambient hover:shadow-ambient-md hover:scale-[1.04] active:scale-[0.98] hover:bg-surface-container transition-all duration-200"
             >
               Sì, ma voglio essere sicuro
             </Link>

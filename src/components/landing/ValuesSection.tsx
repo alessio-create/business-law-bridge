@@ -1,18 +1,17 @@
-import { CheckCircle, FileText, Eye, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
+import { CheckCircle, ArrowRight } from "lucide-react";
+import valuesIllustration from "@/assets/values-illustration.png";
 
 const values = [
   {
-    icon: FileText,
     title: "Preventivo scritto garantito",
     desc: "Sai esattamente quanto spenderai prima di firmare qualsiasi incarico. Zero sorprese.",
   },
   {
-    icon: Eye,
     title: "Trasparenza totale",
     desc: "Se qualcosa cambia, ti avvisiamo subito e concordiamo insieme il da farsi.",
   },
   {
-    icon: Clock,
     title: "Tempi certi",
     desc: "Ti diciamo subito quanto ci vorrà. Report periodici in linguaggio chiaro, non legalese.",
   },
@@ -45,27 +44,25 @@ const ValuesSection = () => (
               </div>
             ))}
           </div>
-        </div>
-        <div className="w-full md:w-1/2">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-primary p-8 rounded-2xl text-primary-foreground flex flex-col gap-4 shadow-primary-lg">
-              <span className="text-4xl font-black">28+</span>
-              <p className="text-sm opacity-80 uppercase font-bold tracking-label">Anni di esperienza</p>
-            </div>
-            <div className="bg-surface-container-low p-8 rounded-2xl flex flex-col gap-4 shadow-ambient">
-              <span className="text-4xl font-black text-primary">100%</span>
-              <p className="text-sm text-muted-foreground uppercase font-bold tracking-label">Preventivi scritti</p>
-            </div>
-            <div className="col-span-2 bg-surface-container-low p-8 rounded-2xl flex items-center justify-between shadow-ambient">
-              <div>
-                <p className="text-foreground font-bold text-lg">Cassazionista</p>
-                <p className="text-muted-foreground text-sm">Abilitato al patrocinio in Corte di Cassazione</p>
-              </div>
-              <div className="p-3 bg-primary/10 rounded-full">
-                <Eye className="w-8 h-8 text-primary" />
-              </div>
-            </div>
+          <div className="mt-4">
+            <Link
+              to="/quiz"
+              className="inline-flex items-center gap-2 rounded-lg h-14 px-8 bg-primary text-primary-foreground text-base font-bold shadow-primary-lg hover:scale-[1.02] transition-transform"
+            >
+              Inizia il Check-up Gratuito
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
+        </div>
+        <div className="w-full md:w-1/2 flex items-center justify-center">
+          <img
+            src={valuesIllustration}
+            alt="Imprenditore con contratto sicuro e futuro protetto"
+            className="w-full max-w-md"
+            loading="lazy"
+            width={1024}
+            height={1024}
+          />
         </div>
       </div>
     </div>

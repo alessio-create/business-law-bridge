@@ -24,40 +24,44 @@ const FAQBookingSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section ref={ref} className="mb-8">
-      <span
-        className={`text-primary/70 font-semibold text-[11px] uppercase tracking-label mb-4 block text-center transition-all duration-700 ease-out ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-        }`}
-      >
-        Hai Domande?
-      </span>
-      <h2
-        className={`text-foreground text-[1.625rem] md:text-[2.125rem] font-black text-center mb-8 transition-all duration-700 ease-out delay-150 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-        }`}
-      >
-        Domande frequenti
-      </h2>
-      <Accordion type="single" collapsible className="w-full">
-        {faqs.map((faq, i) => (
-          <AccordionItem
-            key={i}
-            value={String(i)}
-            className={`bg-surface rounded-xl shadow-ambient mb-3 px-6 transition-all duration-500 ease-out ${
+    <section className="px-6 py-24 md:px-20 md:py-32 bg-surface-container-low">
+      <div ref={ref} className="max-w-[700px] mx-auto">
+        <div className="text-center mb-14">
+          <span
+            className={`text-primary/70 font-semibold text-[11px] uppercase tracking-label mb-4 block transition-all duration-700 ease-out ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
-            style={{ transitionDelay: isVisible ? `${300 + i * 80}ms` : "0ms" }}
           >
-            <AccordionTrigger className="text-foreground font-bold text-[14px] hover:no-underline">
-              {faq.q}
-            </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground text-[13px] leading-[1.75]">
-              {faq.a}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+            Hai Domande?
+          </span>
+          <h2
+            className={`text-foreground text-[1.625rem] md:text-[2.125rem] font-black text-balance leading-[1.12] transition-all duration-700 ease-out delay-150 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
+          >
+            Domande frequenti
+          </h2>
+        </div>
+        <Accordion type="single" collapsible className="w-full">
+          {faqs.map((faq, i) => (
+            <AccordionItem
+              key={i}
+              value={String(i)}
+              className={`bg-surface rounded-xl shadow-ambient mb-3 px-6 hover:shadow-ambient-md transition-all duration-500 ease-out ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+              style={{ transitionDelay: isVisible ? `${300 + i * 80}ms` : "0ms" }}
+            >
+              <AccordionTrigger className="text-foreground font-bold text-[14px] hover:no-underline">
+                {faq.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground text-[13px] leading-[1.75]">
+                {faq.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
     </section>
   );
 };

@@ -24,7 +24,7 @@ const FAQBookingSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="px-6 py-24 md:px-20 md:py-32 bg-surface-container-low">
+    <section className="px-6 py-16 md:px-20 md:py-20 bg-surface-container-low">
       <div ref={ref} className="max-w-[700px] mx-auto">
         <div className="text-center mb-14">
           <span

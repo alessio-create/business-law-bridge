@@ -1,5 +1,5 @@
 import { Star, Shield } from "lucide-react";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+
 
 const testimonials = [
   {
@@ -15,10 +15,10 @@ const testimonials = [
 ];
 
 const TestimonialsBookingSection = () => {
-  const { ref, isVisible } = useScrollReveal(0.05);
+  const isVisible = true;
 
   return (
-    <section ref={ref} className="px-6 py-16 md:px-20 md:py-20 bg-surface">
+    <section className="px-6 py-16 md:px-20 md:py-20 bg-surface">
       <div className="max-w-[1060px] mx-auto">
         <div className="text-center mb-10 md:mb-14">
           <span

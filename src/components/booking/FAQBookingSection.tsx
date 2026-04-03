@@ -1,5 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+
 
 const faqs = [
   {
@@ -21,10 +21,10 @@ const faqs = [
 ];
 
 const FAQBookingSection = () => {
-  const { ref, isVisible } = useScrollReveal(0.05);
+  const isVisible = true;
 
   return (
-    <section ref={ref} className="px-6 py-16 md:px-20 md:py-20 bg-surface-container-low">
+    <section className="px-6 py-16 md:px-20 md:py-20 bg-surface-container-low">
       <div className="max-w-[700px] mx-auto">
         <div className="text-center mb-10 md:mb-14">
           <span

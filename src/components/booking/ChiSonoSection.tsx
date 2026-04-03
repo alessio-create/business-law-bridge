@@ -1,5 +1,5 @@
 import albertoFazio from "@/assets/alberto-fazio.png";
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+
 import { CheckCircle, Scale, Award, Clock } from "lucide-react";
 
 const credentials = [
@@ -10,10 +10,10 @@ const credentials = [
 ];
 
 const ChiSonoSection = () => {
-  const { ref, isVisible } = useScrollReveal(0.05);
+  const isVisible = true;
 
   return (
-    <section ref={ref} className="px-6 py-16 md:px-20 md:py-20 bg-surface">
+    <section className="px-6 py-16 md:px-20 md:py-20 bg-surface">
       <div className="max-w-[1060px] mx-auto">
         <div className="text-center mb-14">
           <span

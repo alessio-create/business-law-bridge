@@ -92,7 +92,7 @@ const Booking = () => {
             <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-primary/[0.03] blur-3xl" />
           </div>
 
-          <div className="relative px-6 py-20 md:px-20 md:py-28">
+          <div className="relative px-6 py-12 md:px-20 md:py-28">
             <div className="max-w-[700px] mx-auto">
               <Link
                 to="/optin"

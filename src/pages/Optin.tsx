@@ -26,7 +26,7 @@ const Optin = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     sessionStorage.setItem("leadInfo", JSON.stringify({ name, email, company }));
-    navigate("/prenota");
+    navigate("/booking");
   };
 
   const mainNeed = answers.find(a => a.question === 0)?.answer || "Contrattualistica";
@@ -54,7 +54,7 @@ const Optin = () => {
   const formBlock = (
     <form onSubmit={handleSubmit} className="bg-surface rounded-2xl p-8 flex flex-col gap-6 shadow-ambient-md">
       <div className="flex flex-col gap-2">
-        <label className="text-sm font-bold text-foreground">Nome e Cognome *</label>
+        <label className="text-[13px] font-bold text-foreground">Nome e Cognome *</label>
         <div className="relative">
           <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
           <input
@@ -64,13 +64,13 @@ const Optin = () => {
             value={name}
             onChange={e => setName(e.target.value)}
             placeholder="Mario Rossi"
-            className="w-full h-12 pl-11 pr-4 rounded-lg bg-surface-container-low text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full h-12 pl-11 pr-4 rounded-xl bg-surface-container-low text-foreground text-[14px] placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-shadow"
           />
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
-        <label className="text-sm font-bold text-foreground">Email aziendale *</label>
+        <label className="text-[13px] font-bold text-foreground">Email aziendale *</label>
         <div className="relative">
           <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
           <input
@@ -80,13 +80,13 @@ const Optin = () => {
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder="mario@azienda.it"
-            className="w-full h-12 pl-11 pr-4 rounded-lg bg-surface-container-low text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full h-12 pl-11 pr-4 rounded-xl bg-surface-container-low text-foreground text-[14px] placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-shadow"
           />
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
-        <label className="text-sm font-bold text-foreground">Nome Azienda</label>
+        <label className="text-[13px] font-bold text-foreground">Nome Azienda</label>
         <div className="relative">
           <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
           <input
@@ -95,20 +95,20 @@ const Optin = () => {
             value={company}
             onChange={e => setCompany(e.target.value)}
             placeholder="Azienda S.r.l."
-            className="w-full h-12 pl-11 pr-4 rounded-lg bg-surface-container-low text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full h-12 pl-11 pr-4 rounded-xl bg-surface-container-low text-foreground text-[14px] placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-shadow"
           />
         </div>
       </div>
 
       <button
         type="submit"
-        className="flex items-center justify-center gap-2 w-full h-14 rounded-lg bg-primary text-primary-foreground text-base font-bold shadow-primary-lg hover:scale-[1.02] transition-transform"
+        className="group flex items-center justify-center gap-2 w-full h-[52px] rounded-xl bg-primary text-primary-foreground text-[15px] font-bold shadow-primary-lg hover:shadow-primary-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
       >
         Vai alla prenotazione
-        <ArrowRight className="w-5 h-5" />
+        <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform duration-300" />
       </button>
 
-      <p className="text-xs text-muted-foreground text-center">
+      <p className="text-[12px] text-muted-foreground text-center leading-relaxed">
         Inviando il form accetti la nostra{" "}
         <a href="#" className="underline">Privacy Policy</a>.
         I tuoi dati non saranno condivisi con terzi.
@@ -119,74 +119,81 @@ const Optin = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-1 px-6 py-12 md:py-20 bg-surface-container-low">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+      <main className="flex-1 px-6 py-12 md:py-20 bg-surface-container-low relative">
+        {/* Subtle radial glow */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-primary/[0.03] blur-3xl" />
+        </div>
+
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
           <div className="flex flex-col gap-8">
             <div>
-              <Link to="/quiz" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6">
+              <Link to="/quiz" className="inline-flex items-center gap-2 text-[13px] text-muted-foreground hover:text-foreground mb-6 transition-colors">
                 <ArrowLeft className="w-4 h-4" />
                 Modifica risposte
               </Link>
-              <h1 className="text-foreground text-3xl font-black mb-3">
+              <span className="text-primary/70 font-semibold text-[11px] uppercase tracking-label mb-4 block">
+                Quasi Fatto
+              </span>
+              <h1 className="text-foreground text-[2rem] md:text-[2.5rem] font-black mb-3 leading-[1.1]">
                 Ottimo! Dicci chi sei.
               </h1>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-muted-foreground text-[15px] md:text-base leading-[1.7]">
                 Lascia i tuoi dati per accedere alla prenotazione del check-up gratuito di 30 minuti.
               </p>
             </div>
 
-            {/* Form on mobile — right after headline */}
+            {/* Form on mobile */}
             <div className="md:hidden">
               {formBlock}
             </div>
 
             {/* Advice based on answers */}
             {answers.length > 0 && (
-              <div className="bg-surface rounded-2xl p-6 shadow-ambient">
+              <div className="bg-surface rounded-2xl p-7 shadow-ambient">
                 <div className="flex items-center gap-2 mb-4">
                   <AlertTriangle className="w-4 h-4 text-primary shrink-0" />
-                  <h3 className="font-bold text-foreground text-xs uppercase tracking-label">La tua situazione</h3>
+                  <h3 className="font-bold text-foreground text-[11px] uppercase tracking-label">La tua situazione</h3>
                 </div>
-                <div className="flex flex-col gap-3 text-sm text-muted-foreground leading-relaxed">
+                <div className="flex flex-col gap-3 text-[13px] text-muted-foreground leading-[1.75]">
                   {getAdvice().map((point, i) => (
                     <p key={i}>{point}</p>
                   ))}
-                  <p className="text-foreground font-bold mt-1">
+                  <p className="text-foreground font-bold mt-1 text-[14px]">
                     Il Check-up Legale Gratuito è il primo passo per blindare la tua impresa. Prenota ora.
                   </p>
                 </div>
               </div>
             )}
 
-
             {/* Social Proof */}
-            <div className="bg-surface rounded-2xl p-6 shadow-ambient">
+            <div className="bg-surface rounded-2xl p-7 shadow-ambient">
               <div className="flex items-center gap-2 mb-4">
-                <div className="flex">
+                <div className="flex gap-px">
                   {[1, 2, 3, 4, 5].map(i => (
-                    <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                    <Star key={i} className="w-3.5 h-3.5 fill-gold text-gold" />
                   ))}
                 </div>
-                <span className="text-sm font-bold text-foreground">4.9/5</span>
-                <span className="text-xs text-muted-foreground">su Google</span>
+                <span className="text-[13px] font-bold text-foreground">4.9/5</span>
+                <span className="text-[11px] text-muted-foreground">su Google</span>
               </div>
               <div className="flex flex-col gap-5">
                 <div>
-                  <blockquote className="text-sm text-muted-foreground italic leading-relaxed">
+                  <blockquote className="text-[13px] text-muted-foreground italic leading-[1.75]">
                     "Contratti rivisti in tempi record. Professionale, chiaro e sempre disponibile."
                   </blockquote>
-                  <p className="text-xs font-bold text-foreground mt-2">— Marco T., CEO, azienda manifatturiera</p>
+                  <p className="text-[12px] font-bold text-foreground mt-2">— Marco T., CEO, azienda manifatturiera</p>
                 </div>
                 <div>
-                  <blockquote className="text-sm text-muted-foreground italic leading-relaxed">
+                  <blockquote className="text-[13px] text-muted-foreground italic leading-[1.75]">
                     "Ha blindato tutti i nostri accordi di distribuzione. Zero sorprese da 3 anni."
                   </blockquote>
-                  <p className="text-xs font-bold text-foreground mt-2">— Laura S., Direttrice commerciale, settore food</p>
+                  <p className="text-[12px] font-bold text-foreground mt-2">— Laura S., Direttrice commerciale, settore food</p>
                 </div>
               </div>
-              <div className="mt-4 pt-4 border-t border-muted/20 flex items-center gap-3">
+              <div className="mt-4 pt-4 flex items-center gap-3">
                 <Shield className="w-4 h-4 text-primary shrink-0" />
-                <p className="text-xs text-muted-foreground">
+                <p className="text-[12px] text-muted-foreground">
                   <strong className="text-foreground">+200 imprese</strong> assistite in contrattualistica negli ultimi 5 anni
                 </p>
               </div>

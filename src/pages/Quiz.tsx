@@ -89,14 +89,19 @@ const Quiz = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex-1 flex items-center justify-center px-6 py-12 md:py-20 bg-surface-container-low">
-        <div className="w-full max-w-2xl">
+      <main className="flex-1 flex items-center justify-center px-6 py-12 md:py-20 bg-surface-container-low relative">
+        {/* Subtle radial glow */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-primary/[0.03] blur-3xl" />
+        </div>
+
+        <div className="w-full max-w-2xl relative z-10">
           <div className="mb-8">
-            <div className="flex justify-between text-sm text-muted-foreground mb-2">
-              <span className="font-bold text-xs uppercase tracking-label">Domanda {step + 1} di {questions.length}</span>
-              <span className="font-bold">{Math.round(progress)}%</span>
+            <div className="flex justify-between text-muted-foreground mb-2">
+              <span className="font-semibold text-[11px] uppercase tracking-label">Domanda {step + 1} di {questions.length}</span>
+              <span className="font-bold text-[13px]">{Math.round(progress)}%</span>
             </div>
-            <div className="h-2 bg-surface-container rounded-full overflow-hidden">
+            <div className="h-1.5 bg-surface-container rounded-full overflow-hidden">
               <div
                 className="h-full bg-primary rounded-full transition-all duration-500"
                 style={{ width: `${progress}%` }}
@@ -105,8 +110,8 @@ const Quiz = () => {
           </div>
 
           <div className="mb-8">
-            <h1 className="text-foreground text-2xl md:text-3xl font-black mb-2">{current.title}</h1>
-            <p className="text-muted-foreground leading-relaxed">{current.subtitle}</p>
+            <h1 className="text-foreground text-[1.625rem] md:text-[2.125rem] font-black mb-2 leading-[1.12]">{current.title}</h1>
+            <p className="text-muted-foreground text-[15px] leading-[1.7]">{current.subtitle}</p>
           </div>
 
           <div className="flex flex-col gap-3 mb-8">
@@ -115,7 +120,6 @@ const Quiz = () => {
                 key={opt.label}
                 onClick={() => {
                   setSelected(opt.label);
-                  // Auto-advance after selection
                   const newAnswers = [...answers.filter(a => a.question !== step), { question: step, answer: opt.label }];
                   setAnswers(newAnswers);
                   setTimeout(() => {
@@ -128,16 +132,16 @@ const Quiz = () => {
                     }
                   }, 400);
                 }}
-                className={`w-full text-left p-5 rounded-xl transition-all ${
+                className={`w-full text-left p-5 rounded-xl transition-all duration-300 ${
                   selected === opt.label
                     ? "bg-primary/5 shadow-ambient-md ring-2 ring-primary"
-                    : "bg-surface shadow-ambient hover:shadow-ambient-md"
+                    : "bg-surface shadow-ambient hover:shadow-ambient-md hover:-translate-y-0.5"
                 }`}
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="font-bold text-foreground">{opt.label}</p>
-                    <p className="text-sm text-muted-foreground mt-1">{opt.desc}</p>
+                    <p className="font-bold text-foreground text-[15px]">{opt.label}</p>
+                    <p className="text-[13px] text-muted-foreground mt-1 leading-[1.7]">{opt.desc}</p>
                   </div>
                   {selected === opt.label && (
                     <CheckCircle className="w-6 h-6 text-primary shrink-0" />
@@ -151,7 +155,7 @@ const Quiz = () => {
             <button
               onClick={handleBack}
               disabled={step === 0}
-              className="flex items-center gap-2 px-6 h-12 rounded-lg text-muted-foreground font-medium hover:text-foreground transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-6 h-12 rounded-lg text-muted-foreground font-medium text-[14px] hover:text-foreground transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
               <ArrowLeft className="w-4 h-4" />
               Indietro
@@ -159,7 +163,7 @@ const Quiz = () => {
             <button
               onClick={handleNext}
               disabled={!selected}
-              className="flex items-center gap-2 px-8 h-14 rounded-lg bg-primary text-primary-foreground font-bold shadow-primary-lg hover:scale-[1.02] transition-transform disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+              className="flex items-center gap-2 px-8 h-[52px] rounded-xl bg-primary text-primary-foreground text-[15px] font-bold shadow-primary-lg hover:shadow-primary-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
             >
               {step === questions.length - 1 ? "Continua" : "Avanti"}
               <ArrowRight className="w-4 h-4" />

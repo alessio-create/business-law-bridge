@@ -26,7 +26,7 @@ const Optin = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     sessionStorage.setItem("leadInfo", JSON.stringify({ name, email, company }));
-    navigate("/prenota");
+    navigate("/booking");
   };
 
   const mainNeed = answers.find(a => a.question === 0)?.answer || "Contrattualistica";

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, ArrowLeft, CheckCircle } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
@@ -56,6 +56,10 @@ const Quiz = () => {
   const [answers, setAnswers] = useState<QuizAnswer[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [step]);
 
   const handleNext = () => {
     if (!selected) return;

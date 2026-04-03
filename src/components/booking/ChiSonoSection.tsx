@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero-lawyer.jpg";
+import albertoFazio from "@/assets/alberto-fazio.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const ChiSonoSection = () => {

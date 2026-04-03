@@ -188,6 +188,25 @@ const Booking = () => {
         <ProcessStepsSection />
         <TestimonialsBookingSection />
         <FAQBookingSection />
+
+        {/* Final CTA anchored to calendar */}
+        <section className="bg-surface-container-low py-16 md:py-20">
+          <div className="max-w-[600px] mx-auto px-6 text-center">
+            <h2 className="text-foreground text-[1.5rem] md:text-[2rem] font-black mb-3 leading-[1.1]">
+              Pronto a proteggere i tuoi contratti?
+            </h2>
+            <p className="text-muted-foreground text-[14px] md:text-[15px] leading-[1.7] mb-8 max-w-md mx-auto">
+              Prenota ora il tuo check-up legale preventivo di 30 minuti. Nessun impegno, solo chiarezza.
+            </p>
+            <button
+              onClick={() => calendarRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
+              className="inline-flex items-center gap-2.5 bg-primary text-primary-foreground font-semibold text-[14px] px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-300 shadow-ambient-md"
+            >
+              <ArrowUp className="w-4 h-4" />
+              Scegli il tuo slot
+            </button>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

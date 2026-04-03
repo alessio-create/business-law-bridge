@@ -94,6 +94,31 @@ const Optin = () => {
                 Nessun impegno o obbligo
               </div>
             </div>
+
+            {/* Social Proof */}
+            <div className="bg-surface rounded-2xl p-6 shadow-ambient">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex">
+                  {[1, 2, 3, 4, 5].map(i => (
+                    <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                  ))}
+                </div>
+                <span className="text-sm font-bold text-foreground">4.9/5</span>
+                <span className="text-xs text-muted-foreground">su Google</span>
+              </div>
+              <div className="flex flex-col gap-4">
+                <blockquote className="text-sm text-muted-foreground italic leading-relaxed">
+                  "Contratti rivisti in tempi record. Professionale, chiaro e sempre disponibile."
+                </blockquote>
+                <p className="text-xs font-bold text-foreground">— Marco T., CEO, azienda manifatturiera</p>
+              </div>
+              <div className="mt-4 pt-4 border-t border-muted/20 flex items-center gap-3">
+                <Shield className="w-4 h-4 text-primary shrink-0" />
+                <p className="text-xs text-muted-foreground">
+                  <strong className="text-foreground">+200 imprese</strong> assistite in contrattualistica negli ultimi 5 anni
+                </p>
+              </div>
+            </div>
           </div>
 
           <div>

@@ -77,7 +77,7 @@ const HeroSection = () => {
 
       {/* Floating avatar */}
       {visible && !dismissed && (
-        <div className="hidden lg:block fixed bottom-8 right-8 z-50 animate-fade-in">
+        <div className="fixed bottom-6 right-6 lg:bottom-8 lg:right-8 z-50 animate-fade-in">
           <div className="relative">
             {/* First bubble - lawyer presentation */}
             <div

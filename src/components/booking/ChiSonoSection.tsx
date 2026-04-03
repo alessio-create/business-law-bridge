@@ -1,4 +1,4 @@
-import albertoFazio from "@/assets/alberto-fazio.jpg";
+import albertoFazio from "@/assets/alberto-fazio.png";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { CheckCircle, Scale, Award, Clock } from "lucide-react";
 

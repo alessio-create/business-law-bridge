@@ -89,15 +89,23 @@ const HeroSection = () => {
               >
                 <X className="w-3.5 h-3.5 text-muted-foreground" />
               </button>
-              <p className="text-foreground text-[13px] leading-relaxed pr-5">
-                Sono l'Avv. <strong>Alberto Fazio</strong>, Cassazionista con{" "}
-                <strong>28 anni di esperienza</strong> in contrattualistica. Inizia con il Check-Up Legale! 👋
+              <p className="text-foreground text-[14px] font-bold leading-snug pr-5">
+                I tuoi contratti sono davvero a prova di causa?
               </p>
+              <Link
+                to="/quiz"
+                className="inline-flex items-center gap-1.5 mt-3 text-primary text-[13px] font-semibold hover:underline"
+              >
+                Scoprilo ora <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
               <div className="absolute -bottom-2 right-8 w-4 h-4 bg-surface/95 rotate-45" />
             </div>
-            <div className="w-[60px] h-[60px] rounded-full overflow-hidden shadow-primary-xl ring-[3px] ring-primary/15 cursor-pointer hover:scale-110 transition-transform duration-300">
+            <Link
+              to="/quiz"
+              className="block w-[60px] h-[60px] rounded-full overflow-hidden shadow-primary-xl ring-[3px] ring-primary/15 cursor-pointer hover:scale-110 transition-transform duration-300"
+            >
               <img src={heroImage} alt="Avv. Alberto Fazio" className="w-full h-full object-cover" width={60} height={60} />
-            </div>
+            </Link>
           </div>
         </div>
       )}

@@ -48,20 +48,20 @@ const FAQSection = () => {
             Hai qualche dubbio?
           </h2>
         </div>
-        <div className="flex flex-col gap-2.5">
+        <div className="flex flex-col gap-3">
           {faqs.map((faq, i) => (
             <div
               key={i}
-              className={`px-6 py-4.5 rounded-xl bg-surface cursor-pointer transition-all duration-400 ease-out ${
+              className={`px-7 py-5 rounded-2xl bg-surface cursor-pointer transition-all duration-400 ease-out ${
                 openIndex === i ? "shadow-ambient-md" : "shadow-ambient hover:shadow-ambient-md"
               } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
               style={{ transitionDelay: isVisible ? `${300 + i * 80}ms` : "0ms" }}
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
             >
               <div className="flex items-center justify-between py-1">
-                <span className="font-bold text-foreground text-[14px] pr-4 leading-snug">{faq.q}</span>
+                <span className="font-bold text-foreground text-[16px] pr-4 leading-snug">{faq.q}</span>
                 <ChevronDown
-                  className={`w-4 h-4 text-muted-foreground/60 shrink-0 transition-transform duration-300 ease-out ${openIndex === i ? "rotate-180" : ""}`}
+                  className={`w-5 h-5 text-muted-foreground/60 shrink-0 transition-transform duration-300 ease-out ${openIndex === i ? "rotate-180" : ""}`}
                 />
               </div>
               <div
@@ -70,7 +70,7 @@ const FAQSection = () => {
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="text-muted-foreground text-[14px] leading-[1.7] pb-1">{faq.a}</p>
+                  <p className="text-muted-foreground text-[15px] leading-[1.75] pb-1">{faq.a}</p>
                 </div>
               </div>
             </div>

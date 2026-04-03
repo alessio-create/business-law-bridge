@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Star, FileCheck } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const CTASection = () => {
@@ -32,19 +32,13 @@ const CTASection = () => {
             Inizia il Check-up
             <ArrowRight className="w-[18px] h-[18px] group-hover:translate-x-0.5 transition-transform duration-300" />
           </Link>
-          <div className="flex flex-wrap items-center justify-center gap-6 mt-4 text-primary-foreground/60 text-[13px]">
-            <div className="flex items-center gap-1.5">
-              <div className="flex gap-px">
-                {[1, 2, 3, 4, 5].map((s) => (
-                  <Star key={s} className="w-3 h-3 fill-gold text-gold" />
-                ))}
-              </div>
-              <span>4.9/5 — 47 recensioni</span>
+          <div className="flex items-center justify-center gap-1.5 mt-4 text-primary-foreground/60 text-[13px]">
+            <div className="flex gap-px">
+              {[1, 2, 3, 4, 5].map((s) => (
+                <Star key={s} className="w-3 h-3 fill-gold text-gold" />
+              ))}
             </div>
-            <div className="flex items-center gap-1.5">
-              <FileCheck className="w-3.5 h-3.5 text-gold" />
-              <span>500+ contratti redatti</span>
-            </div>
+            <span>4.9/5 — 47 recensioni</span>
           </div>
         </div>
       </div>

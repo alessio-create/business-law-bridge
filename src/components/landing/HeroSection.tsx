@@ -112,15 +112,22 @@ const HeroSection = () => {
                 <X className="w-3.5 h-3.5 text-muted-foreground" />
               </button>
               <p className="text-foreground text-[13px] leading-relaxed pr-5">
-                Sono l'Avv. <strong>Alberto Fazio</strong>, Cassazionista con{" "}
-                <strong>28 anni di esperienza</strong>. Prenota il tuo Check-Up Legale gratuito! 👋
+                Rispondi e scopri se i tuoi contratti ti proteggono davvero:
               </p>
-              <Link
-                to="/quiz"
-                className="inline-flex items-center gap-1.5 mt-3 text-primary text-[13px] font-semibold hover:underline"
-              >
-                Scoprilo ora <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              <div className="flex gap-2 mt-3">
+                <Link
+                  to="/quiz"
+                  className="flex-1 text-center rounded-lg py-2 bg-primary text-primary-foreground text-[13px] font-bold hover:opacity-90 transition-opacity"
+                >
+                  Sì ✅
+                </Link>
+                <Link
+                  to="/quiz"
+                  className="flex-1 text-center rounded-lg py-2 bg-destructive/10 text-destructive text-[13px] font-bold hover:bg-destructive/15 transition-colors"
+                >
+                  No ❌
+                </Link>
+              </div>
               <div className="absolute -bottom-2 right-8 w-4 h-4 bg-surface/95 rotate-45" />
             </div>
             <Link

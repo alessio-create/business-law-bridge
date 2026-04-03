@@ -57,6 +57,10 @@ const Quiz = () => {
   const [selected, setSelected] = useState<string | null>(null);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [step]);
+
   const handleNext = () => {
     if (!selected) return;
     const newAnswers = [...answers.filter(a => a.question !== step), { question: step, answer: selected }];

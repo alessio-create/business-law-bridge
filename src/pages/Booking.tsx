@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { CheckCircle, ArrowLeft, Calendar, Clock, Video } from "lucide-react";
+import { CheckCircle, ArrowLeft, Calendar, Clock, Video, Star, ChevronDown, Shield, FileText, PhoneCall } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 
@@ -134,6 +135,111 @@ const Booking = () => {
               <CheckCircle className="w-4 h-4 text-primary" />
               100% gratuito
             </div>
+          </div>
+
+          {/* Cosa accadrà dopo */}
+          <div className="mt-16 mb-16">
+            <h2 className="text-foreground text-2xl font-black text-center mb-8">Cosa accadrà dopo</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-surface rounded-2xl p-6 shadow-ambient text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <PhoneCall className="w-6 h-6 text-primary" />
+                </div>
+                <div className="text-xs font-bold text-primary mb-2 uppercase tracking-label">Step 1</div>
+                <h3 className="font-bold text-foreground mb-2">Videochiamata gratuita</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  30 minuti per analizzare la tua situazione contrattuale e individuare le criticità.
+                </p>
+              </div>
+              <div className="bg-surface rounded-2xl p-6 shadow-ambient text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FileText className="w-6 h-6 text-primary" />
+                </div>
+                <div className="text-xs font-bold text-primary mb-2 uppercase tracking-label">Step 2</div>
+                <h3 className="font-bold text-foreground mb-2">Preventivo scritto</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Ricevi un preventivo chiaro e dettagliato, senza sorprese né obblighi.
+                </p>
+              </div>
+              <div className="bg-surface rounded-2xl p-6 shadow-ambient text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-6 h-6 text-primary" />
+                </div>
+                <div className="text-xs font-bold text-primary mb-2 uppercase tracking-label">Step 3</div>
+                <h3 className="font-bold text-foreground mb-2">Contratti blindati</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Se decidi di procedere, i tuoi contratti vengono riscritti o revisionati su misura.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Social Proof */}
+          <div className="mb-16">
+            <h2 className="text-foreground text-2xl font-black text-center mb-8">Cosa dicono i clienti</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-surface rounded-2xl p-6 shadow-ambient">
+                <div className="flex mb-3">
+                  {[1, 2, 3, 4, 5].map(i => (
+                    <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                  ))}
+                </div>
+                <blockquote className="text-sm text-muted-foreground italic leading-relaxed mb-3">
+                  "Contratti rivisti in tempi record. Professionale, chiaro e sempre disponibile."
+                </blockquote>
+                <p className="text-xs font-bold text-foreground">— Marco T., CEO, azienda manifatturiera</p>
+              </div>
+              <div className="bg-surface rounded-2xl p-6 shadow-ambient">
+                <div className="flex mb-3">
+                  {[1, 2, 3, 4, 5].map(i => (
+                    <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                  ))}
+                </div>
+                <blockquote className="text-sm text-muted-foreground italic leading-relaxed mb-3">
+                  "Ha blindato tutti i nostri accordi di distribuzione. Zero sorprese da 3 anni."
+                </blockquote>
+                <p className="text-xs font-bold text-foreground">— Laura S., Direttrice commerciale, settore food</p>
+              </div>
+            </div>
+          </div>
+
+          {/* FAQ */}
+          <div className="mb-8">
+            <h2 className="text-foreground text-2xl font-black text-center mb-8">Domande frequenti</h2>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="1" className="bg-surface rounded-xl shadow-ambient mb-3 px-6">
+                <AccordionTrigger className="text-foreground font-bold text-sm hover:no-underline">
+                  Il check-up è davvero gratuito?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm leading-relaxed">
+                  Sì, 100%. La videochiamata di 30 minuti è senza costi e senza impegno. Serve a capire la tua situazione e valutare se possiamo aiutarti.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="2" className="bg-surface rounded-xl shadow-ambient mb-3 px-6">
+                <AccordionTrigger className="text-foreground font-bold text-sm hover:no-underline">
+                  Quanto costa il servizio dopo il check-up?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm leading-relaxed">
+                  Riceverai un preventivo scritto e dettagliato dopo la consulenza. Nessun obbligo: decidi con calma se procedere.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="3" className="bg-surface rounded-xl shadow-ambient mb-3 px-6">
+                <AccordionTrigger className="text-foreground font-bold text-sm hover:no-underline">
+                  Come si svolge la videochiamata?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm leading-relaxed">
+                  Riceverai un link per la videochiamata via email. Puoi partecipare da computer o smartphone, senza installare nulla.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="4" className="bg-surface rounded-xl shadow-ambient mb-3 px-6">
+                <AccordionTrigger className="text-foreground font-bold text-sm hover:no-underline">
+                  Devo preparare qualcosa prima della chiamata?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm leading-relaxed">
+                  Idealmente sì: tieni a portata di mano i contratti che vuoi far revisionare e le domande che vuoi porre. Ma non è obbligatorio.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </main>

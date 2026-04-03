@@ -46,7 +46,7 @@ const Booking = () => {
               Perfetto, {lead.name}!
             </h1>
             <p className="text-muted-foreground text-[15px] md:text-base mb-8 leading-[1.7]">
-              Il tuo check-up legale gratuito è confermato. Riceverai un'email di conferma a <strong className="text-foreground">{lead.email}</strong> con tutti i dettagli.
+              Il tuo check-up legale preventivo è confermato. Riceverai un'email di conferma a <strong className="text-foreground">{lead.email}</strong> con tutti i dettagli.
             </p>
             <div className="bg-surface rounded-2xl p-7 text-left mb-8 shadow-ambient-md">
               <h3 className="font-bold text-foreground mb-4 text-[11px] uppercase tracking-label">Come prepararti al check-up</h3>
@@ -103,7 +103,7 @@ const Booking = () => {
                 Scegli quando fare il check-up
               </h1>
               <p className="text-muted-foreground text-[15px] md:text-base leading-[1.7] max-w-lg mx-auto">
-                {lead ? `${lead.name}, seleziona` : "Seleziona"} il giorno e l'orario che preferisci per la tua consulenza gratuita di 30 minuti.
+                {lead ? `${lead.name}, seleziona` : "Seleziona"} il giorno e l'orario che preferisci per la tua consulenza preventiva di 30 minuti.
               </p>
             </div>
 
@@ -145,7 +145,7 @@ const Booking = () => {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-primary" />
-                100% gratuito
+                100% preventivo
               </div>
             </div>
 

@@ -139,7 +139,7 @@ const Optin = () => {
                 Ottimo! Dicci chi sei.
               </h1>
               <p className="text-muted-foreground text-[15px] md:text-base leading-[1.7]">
-                Lascia i tuoi dati per accedere alla prenotazione del check-up gratuito di 30 minuti.
+                Lascia i tuoi dati per accedere alla prenotazione del check-up preventivo di 30 minuti.
               </p>
             </div>
 
@@ -160,7 +160,7 @@ const Optin = () => {
                     <p key={i}>{point}</p>
                   ))}
                   <p className="text-foreground font-bold mt-1 text-[14px]">
-                    Il Check-up Legale Gratuito è il primo passo per blindare la tua impresa. Prenota ora.
+                    Il Check-up Legale Preventivo è il primo passo per blindare la tua impresa. Prenota ora.
                   </p>
                 </div>
               </div>

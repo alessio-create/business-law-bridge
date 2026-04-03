@@ -39,7 +39,7 @@ const ValuesSection = () => {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
             >
-              Cosa ottieni dal Check-up Gratuito
+              Cosa ottieni dal Check-up Preventivo
             </h2>
             <p
               className={`text-muted-foreground text-[15px] md:text-base leading-[1.7] transition-all duration-700 ease-out delay-200 ${

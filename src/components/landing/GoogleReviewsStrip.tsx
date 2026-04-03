@@ -9,7 +9,7 @@ const reviews = [
   { name: "Francesca D.", text: "Mi ha evitato una causa da 80.000€ con una revisione contrattuale." },
   { name: "Roberto C.", text: "Competente, preciso e sempre reperibile. Lo consiglio a tutti." },
   { name: "Elena V.", text: "28 anni di esperienza si sentono. Contratti impeccabili." },
-  { name: "Davide L.", text: "Check-up gratuito utilissimo. Ho capito subito dove ero esposto." },
+  { name: "Davide L.", text: "Check-up preventivo utilissimo. Ho capito subito dove ero esposto." },
   { name: "Chiara F.", text: "Zero sorprese sui costi. Trasparenza totale dall'inizio alla fine." },
 ];
 

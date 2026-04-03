@@ -1,7 +1,7 @@
 const steps = [
   {
     num: "1",
-    title: "Check-up Gratuito",
+    title: "Check-up Preventivo",
     desc: "30 minuti per analizzare la tua situazione legale. Ti diciamo subito se e come possiamo aiutarti.",
   },
   {

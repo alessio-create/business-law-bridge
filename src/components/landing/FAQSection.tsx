@@ -4,12 +4,12 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const faqs = [
   {
-    q: "Il check-up è davvero gratuito?",
-    a: "Sì, 100%. Sono 30 minuti dedicati ad analizzare i tuoi contratti e capire dove sei esposto. Nessun costo, nessun obbligo.",
+    q: "Come funziona il check-up preventivo?",
+    a: "Sono 30 minuti dedicati ad analizzare i tuoi contratti e capire dove sei esposto. Nessun obbligo.",
   },
   {
     q: "Quanto costa redigere un contratto?",
-    a: "Dipende dalla complessità, ma riceverai sempre un preventivo scritto prima di iniziare. Zero sorprese. Il preventivo è incluso nel check-up gratuito.",
+    a: "Dipende dalla complessità, ma riceverai sempre un preventivo scritto prima di iniziare. Zero sorprese. Il preventivo è incluso nel check-up preventivo.",
   },
   {
     q: "Lavorate solo con aziende di Trento?",

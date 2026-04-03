@@ -139,7 +139,7 @@ const Optin = () => {
                 Ottimo! Dicci chi sei.
               </h1>
               <p className="text-muted-foreground text-[15px] md:text-base leading-[1.7]">
-                Lascia i tuoi dati per accedere alla prenotazione del check-up gratuito di 30 minuti.
+                Lascia i tuoi dati per accedere alla prenotazione del check-up preventivo di 30 minuti.
               </p>
             </div>
 

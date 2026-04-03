@@ -89,7 +89,7 @@ const Booking = () => {
       <Navbar />
       <main className="flex-1">
         {/* Hero / Calendar section */}
-        <section className="bg-surface relative">
+        <section ref={calendarRef} className="bg-surface relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-primary/[0.03] blur-3xl" />
           </div>

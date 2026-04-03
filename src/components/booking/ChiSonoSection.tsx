@@ -10,11 +10,11 @@ const credentials = [
 ];
 
 const ChiSonoSection = () => {
-  const { ref, isVisible } = useScrollReveal();
+  const { ref, isVisible } = useScrollReveal(0.05);
 
   return (
-    <section className="px-6 py-16 md:px-20 md:py-20 bg-surface">
-      <div ref={ref} className="max-w-[1060px] mx-auto">
+    <section ref={ref} className="px-6 py-16 md:px-20 md:py-20 bg-surface">
+      <div className="max-w-[1060px] mx-auto">
         <div className="text-center mb-14">
           <span
             className={`text-primary/70 font-semibold text-[11px] uppercase tracking-label mb-4 block transition-all duration-700 ease-out ${
@@ -32,14 +32,14 @@ const ChiSonoSection = () => {
           </h2>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-14 lg:gap-20 items-center">
+        <div className="flex flex-col md:flex-row gap-10 lg:gap-16 items-center">
           {/* Photo */}
           <div
             className={`w-full md:w-5/12 transition-all duration-800 ease-out delay-300 ${
               isVisible ? "opacity-100 scale-100" : "opacity-0 scale-[0.96]"
             }`}
           >
-            <div className="relative">
+            <div className="relative max-w-[280px] md:max-w-none mx-auto">
               <div className="rounded-2xl overflow-hidden shadow-ambient-lg">
                 <img
                   src={albertoFazio}
@@ -51,26 +51,26 @@ const ChiSonoSection = () => {
                 />
               </div>
               {/* Floating credential badge */}
-              <div className="absolute -bottom-4 -right-4 md:-right-6 bg-surface rounded-xl shadow-ambient-md p-4 flex items-center gap-3">
-                <div className="w-10 h-10 bg-primary/8 rounded-full flex items-center justify-center">
-                  <Scale className="w-5 h-5 text-primary" />
+              <div className="absolute -bottom-3 -right-2 md:-right-6 bg-surface rounded-xl shadow-ambient-md p-3 md:p-4 flex items-center gap-3">
+                <div className="w-9 h-9 md:w-10 md:h-10 bg-primary/8 rounded-full flex items-center justify-center">
+                  <Scale className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-foreground text-[13px] font-bold">Cassazionista</p>
-                  <p className="text-muted-foreground text-[11px]">Abilitato in Cassazione</p>
+                  <p className="text-foreground text-[12px] md:text-[13px] font-bold">Cassazionista</p>
+                  <p className="text-muted-foreground text-[10px] md:text-[11px]">Abilitato in Cassazione</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Content */}
-          <div className="w-full md:w-7/12 flex flex-col gap-6">
+          <div className="w-full md:w-7/12 flex flex-col gap-5">
             <div
               className={`transition-all duration-700 ease-out delay-400 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
             >
-              <h3 className="text-foreground text-[1.375rem] md:text-[1.625rem] font-black mb-1">
+              <h3 className="text-foreground text-[1.25rem] md:text-[1.625rem] font-black mb-1">
                 Avv. Alberto Fazio
               </h3>
               <p className="text-primary/70 font-semibold text-[13px]">
@@ -79,7 +79,7 @@ const ChiSonoSection = () => {
             </div>
 
             <p
-              className={`text-muted-foreground text-[15px] leading-[1.8] transition-all duration-700 ease-out delay-500 ${
+              className={`text-muted-foreground text-[14px] md:text-[15px] leading-[1.8] transition-all duration-700 ease-out delay-500 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
             >
@@ -87,7 +87,7 @@ const ChiSonoSection = () => {
             </p>
 
             <p
-              className={`text-muted-foreground text-[15px] leading-[1.8] transition-all duration-700 ease-out delay-[550ms] ${
+              className={`text-muted-foreground text-[14px] md:text-[15px] leading-[1.8] transition-all duration-700 ease-out delay-[550ms] ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
               }`}
             >
@@ -95,19 +95,19 @@ const ChiSonoSection = () => {
             </p>
 
             {/* Credential grid */}
-            <div className="grid grid-cols-2 gap-3 mt-2">
+            <div className="grid grid-cols-2 gap-2 md:gap-3 mt-2">
               {credentials.map((c, i) => (
                 <div
                   key={c.label}
-                  className={`flex items-center gap-3 bg-surface-container-low rounded-xl p-4 transition-all duration-600 ease-out ${
+                  className={`flex items-center gap-2.5 bg-surface-container-low rounded-xl p-3 md:p-4 transition-all duration-600 ease-out ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                   style={{ transitionDelay: isVisible ? `${600 + i * 80}ms` : "0ms" }}
                 >
-                  <div className="p-1.5 bg-primary/8 rounded-lg">
-                    <c.icon className="w-4 h-4 text-primary/70" />
+                  <div className="p-1 md:p-1.5 bg-primary/8 rounded-lg">
+                    <c.icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary/70" />
                   </div>
-                  <span className="text-foreground text-[13px] font-bold">{c.label}</span>
+                  <span className="text-foreground text-[11px] md:text-[13px] font-bold">{c.label}</span>
                 </div>
               ))}
             </div>

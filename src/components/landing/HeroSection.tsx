@@ -79,7 +79,7 @@ const HeroSection = () => {
       {visible && !dismissed && (
         <div className="hidden lg:block fixed bottom-8 right-8 z-50 animate-fade-in">
           <div className="relative">
-            {/* First bubble */}
+            {/* First bubble - lawyer presentation */}
             <div
               className={`absolute bottom-full right-0 mb-3 w-72 bg-surface/95 backdrop-blur-xl rounded-2xl shadow-ambient-lg p-5 transition-all duration-500 ease-out ${
                 showBubble && !showSecondBubble ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
@@ -92,13 +92,14 @@ const HeroSection = () => {
               >
                 <X className="w-3.5 h-3.5 text-muted-foreground" />
               </button>
-              <p className="text-foreground text-[14px] font-bold leading-snug pr-5">
-                I tuoi contratti sono davvero a prova di causa?
+              <p className="text-foreground text-[13px] leading-relaxed pr-5">
+                Sono l'Avv. <strong>Alberto Fazio</strong>, Cassazionista con{" "}
+                <strong>28 anni di esperienza</strong> in contrattualistica. 👋
               </p>
               <div className="absolute -bottom-2 right-8 w-4 h-4 bg-surface/95 rotate-45" />
             </div>
 
-            {/* Second bubble */}
+            {/* Second bubble - question with answers */}
             <div
               className={`absolute bottom-full right-0 mb-3 w-72 bg-surface/95 backdrop-blur-xl rounded-2xl shadow-ambient-lg p-5 transition-all duration-500 ease-out ${
                 showSecondBubble ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
@@ -111,8 +112,8 @@ const HeroSection = () => {
               >
                 <X className="w-3.5 h-3.5 text-muted-foreground" />
               </button>
-              <p className="text-foreground text-[13px] leading-relaxed pr-5">
-                Rispondi e scopri se i tuoi contratti ti proteggono davvero:
+              <p className="text-foreground text-[14px] font-bold leading-snug pr-5">
+                I tuoi contratti sono davvero a prova di causa?
               </p>
               <div className="flex gap-2 mt-3">
                 <Link

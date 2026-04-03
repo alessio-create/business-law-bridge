@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle, Mail, User, Building2, Star, Shield } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, Mail, User, Building2, Star, Shield, AlertTriangle } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 
@@ -30,6 +30,91 @@ const Optin = () => {
   };
 
   const mainNeed = answers.find(a => a.question === 0)?.answer || "Contrattualistica";
+  const urgency = answers.find(a => a.question === 2)?.answer;
+  const hasLawyer = answers.find(a => a.question === 3)?.answer;
+
+  const getAdvice = () => {
+    const points: string[] = [];
+    points.push(`Hai indicato che ti serve supporto per "${mainNeed}". È un'area in cui anche piccole falle contrattuali possono costare decine di migliaia di euro.`);
+    if (urgency === "Urgente") {
+      points.push("La tua situazione è urgente: ogni giorno senza un contratto solido aumenta il rischio di contestazioni.");
+    } else if (urgency === "Entro 30 giorni") {
+      points.push("Hai tempo, ma non troppo. Intervenire ora evita di trovarsi sotto pressione quando sarà troppo tardi.");
+    } else {
+      points.push("Stai valutando: è il momento migliore per agire, prima che un problema ti costringa a farlo in emergenza.");
+    }
+    if (hasLawyer?.includes("non ho")) {
+      points.push("Senza un avvocato di riferimento, i tuoi contratti potrebbero avere vulnerabilità che non conosci.");
+    } else if (hasLawyer?.includes("non sono soddisfatto")) {
+      points.push("Se il tuo attuale avvocato non ti convince, è fondamentale avere un secondo parere qualificato.");
+    }
+    return points;
+  };
+
+  const formBlock = (
+    <form onSubmit={handleSubmit} className="bg-surface rounded-2xl p-8 flex flex-col gap-6 shadow-ambient-md">
+      <div className="flex flex-col gap-2">
+        <label className="text-sm font-bold text-foreground">Nome e Cognome *</label>
+        <div className="relative">
+          <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+          <input
+            type="text"
+            required
+            maxLength={100}
+            value={name}
+            onChange={e => setName(e.target.value)}
+            placeholder="Mario Rossi"
+            className="w-full h-12 pl-11 pr-4 rounded-lg bg-surface-container-low text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label className="text-sm font-bold text-foreground">Email aziendale *</label>
+        <div className="relative">
+          <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+          <input
+            type="email"
+            required
+            maxLength={255}
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            placeholder="mario@azienda.it"
+            className="w-full h-12 pl-11 pr-4 rounded-lg bg-surface-container-low text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label className="text-sm font-bold text-foreground">Nome Azienda</label>
+        <div className="relative">
+          <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+          <input
+            type="text"
+            maxLength={100}
+            value={company}
+            onChange={e => setCompany(e.target.value)}
+            placeholder="Azienda S.r.l."
+            className="w-full h-12 pl-11 pr-4 rounded-lg bg-surface-container-low text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        className="flex items-center justify-center gap-2 w-full h-14 rounded-lg bg-primary text-primary-foreground text-base font-bold shadow-primary-lg hover:scale-[1.02] transition-transform"
+      >
+        Vai alla prenotazione
+        <ArrowRight className="w-5 h-5" />
+      </button>
+
+      <p className="text-xs text-muted-foreground text-center">
+        Inviando il form accetti la nostra{" "}
+        <a href="#" className="underline">Privacy Policy</a>.
+        I tuoi dati non saranno condivisi con terzi.
+      </p>
+    </form>
+  );
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -50,26 +135,25 @@ const Optin = () => {
               </p>
             </div>
 
+            {/* Form on mobile — right after headline */}
+            <div className="md:hidden">
+              {formBlock}
+            </div>
+
+            {/* Advice based on answers */}
             {answers.length > 0 && (
               <div className="bg-surface rounded-2xl p-6 shadow-ambient">
-                <h3 className="font-bold text-foreground mb-4 text-xs uppercase tracking-label">Le tue risposte</h3>
-                <div className="flex flex-col gap-3 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Tipo contratto</span>
-                    <span className="font-medium text-foreground">{mainNeed}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Dimensione</span>
-                    <span className="font-medium text-foreground">{answers.find(a => a.question === 1)?.answer}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Urgenza</span>
-                    <span className="font-medium text-foreground">{answers.find(a => a.question === 2)?.answer}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Avvocato attuale</span>
-                    <span className="font-medium text-foreground">{answers.find(a => a.question === 3)?.answer}</span>
-                  </div>
+                <div className="flex items-center gap-2 mb-4">
+                  <AlertTriangle className="w-4 h-4 text-primary shrink-0" />
+                  <h3 className="font-bold text-foreground text-xs uppercase tracking-label">La tua situazione</h3>
+                </div>
+                <div className="flex flex-col gap-3 text-sm text-muted-foreground leading-relaxed">
+                  {getAdvice().map((point, i) => (
+                    <p key={i}>{point}</p>
+                  ))}
+                  <p className="text-foreground font-bold mt-1">
+                    Il Check-up Legale Gratuito è il primo passo per blindare la tua impresa. Prenota ora.
+                  </p>
                 </div>
               </div>
             )}
@@ -129,69 +213,9 @@ const Optin = () => {
             </div>
           </div>
 
-          <div>
-            <form onSubmit={handleSubmit} className="bg-surface rounded-2xl p-8 flex flex-col gap-6 shadow-ambient-md">
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-foreground">Nome e Cognome *</label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                  <input
-                    type="text"
-                    required
-                    maxLength={100}
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                    placeholder="Mario Rossi"
-                    className="w-full h-12 pl-11 pr-4 rounded-lg bg-surface-container-low text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-foreground">Email aziendale *</label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                  <input
-                    type="email"
-                    required
-                    maxLength={255}
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    placeholder="mario@azienda.it"
-                    className="w-full h-12 pl-11 pr-4 rounded-lg bg-surface-container-low text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-foreground">Nome Azienda</label>
-                <div className="relative">
-                  <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                  <input
-                    type="text"
-                    maxLength={100}
-                    value={company}
-                    onChange={e => setCompany(e.target.value)}
-                    placeholder="Azienda S.r.l."
-                    className="w-full h-12 pl-11 pr-4 rounded-lg bg-surface-container-low text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="flex items-center justify-center gap-2 w-full h-14 rounded-lg bg-primary text-primary-foreground text-base font-bold shadow-primary-lg hover:scale-[1.02] transition-transform"
-              >
-                Vai alla prenotazione
-                <ArrowRight className="w-5 h-5" />
-              </button>
-
-              <p className="text-xs text-muted-foreground text-center">
-                Inviando il form accetti la nostra{" "}
-                <a href="#" className="underline">Privacy Policy</a>.
-                I tuoi dati non saranno condivisi con terzi.
-              </p>
-            </form>
+          {/* Form on desktop */}
+          <div className="hidden md:block">
+            {formBlock}
           </div>
         </div>
       </main>

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 const HeroSection = () => {
   const [showBubble, setShowBubble] = useState(false);
+  const [showSecondBubble, setShowSecondBubble] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const [visible, setVisible] = useState(false);
   const [heroLoaded, setHeroLoaded] = useState(false);

@@ -109,7 +109,21 @@ const Quiz = () => {
             {current.options.map((opt) => (
               <button
                 key={opt.label}
-                onClick={() => setSelected(opt.label)}
+                onClick={() => {
+                  setSelected(opt.label);
+                  // Auto-advance after selection
+                  const newAnswers = [...answers.filter(a => a.question !== step), { question: step, answer: opt.label }];
+                  setAnswers(newAnswers);
+                  setTimeout(() => {
+                    if (step < questions.length - 1) {
+                      setSelected(null);
+                      setStep(prev => prev + 1);
+                    } else {
+                      sessionStorage.setItem("quizAnswers", JSON.stringify(newAnswers));
+                      navigate("/optin");
+                    }
+                  }, 400);
+                }}
                 className={`w-full text-left p-5 rounded-xl transition-all ${
                   selected === opt.label
                     ? "bg-primary/5 shadow-ambient-md ring-2 ring-primary"

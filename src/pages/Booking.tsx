@@ -103,7 +103,7 @@ const Booking = () => {
                 Scegli quando fare il check-up
               </h1>
               <p className="text-muted-foreground text-[15px] md:text-base leading-[1.7] max-w-lg mx-auto">
-                {lead ? `${lead.name}, seleziona` : "Seleziona"} il giorno e l'orario che preferisci per la tua consulenza gratuita di 30 minuti.
+                {lead ? `${lead.name}, seleziona` : "Seleziona"} il giorno e l'orario che preferisci per la tua consulenza preventiva di 30 minuti.
               </p>
             </div>
 

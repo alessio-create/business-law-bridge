@@ -1,12 +1,19 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 
-export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0.15) {
-  const ref = useRef<T>(null);
+export function useScrollReveal(threshold = 0.15) {
+  const ref = useRef<any>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const el = ref.current;
+    const el = ref.current as HTMLElement | null;
     if (!el) return;
+
+    // Check if already in viewport
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setIsVisible(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -18,13 +25,6 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(threshol
       { threshold: Math.min(threshold, 0.1), rootMargin: "100px 0px 0px 0px" }
     );
     observer.observe(el);
-
-    // Fallback: if element is already in viewport on mount
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      setIsVisible(true);
-    }
-
     return () => observer.disconnect();
   }, [threshold]);
 

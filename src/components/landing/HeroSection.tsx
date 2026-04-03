@@ -21,6 +21,7 @@ const HeroSection = () => {
       if (scrollPercent >= 0.3 && !visible) {
         setVisible(true);
         setTimeout(() => setShowBubble(true), 1500);
+        setTimeout(() => setShowSecondBubble(true), 2500);
       }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });

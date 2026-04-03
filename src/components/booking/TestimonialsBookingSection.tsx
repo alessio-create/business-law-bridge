@@ -15,7 +15,7 @@ const testimonials = [
 ];
 
 const TestimonialsBookingSection = () => {
-  const { ref, isVisible } = useScrollReveal<HTMLElement>(0.05);
+  const { ref, isVisible } = useScrollReveal(0.05);
 
   return (
     <section ref={ref} className="px-6 py-16 md:px-20 md:py-20 bg-surface">

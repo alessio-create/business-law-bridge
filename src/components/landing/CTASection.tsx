@@ -20,7 +20,7 @@ const CTASection = () => {
 
         <div className="relative z-10 flex flex-col items-center gap-6">
           <h2 className="text-[1.625rem] md:text-[2.5rem] font-black max-w-md leading-[1.1] text-balance">
-            I tuoi contratti ti proteggono? Scoprilo gratis.
+            I tuoi contratti ti proteggono? Scoprilo oggi.
           </h2>
           <p className="text-[15px] md:text-base opacity-70 max-w-sm leading-[1.7]">
             30 minuti per analizzare i tuoi accordi commerciali e capire dove sei esposto. Preventivo scritto incluso.

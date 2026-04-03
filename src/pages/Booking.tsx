@@ -19,6 +19,7 @@ const Booking = () => {
   const [lead, setLead] = useState<LeadInfo | null>(null);
   const [booked, setBooked] = useState(false);
   const [heroLoaded, setHeroLoaded] = useState(false);
+  const calendarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const stored = sessionStorage.getItem("leadInfo");

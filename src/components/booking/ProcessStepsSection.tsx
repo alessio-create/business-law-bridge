@@ -5,7 +5,7 @@ const steps = [
   {
     icon: PhoneCall,
     step: "Step 1",
-    title: "Videochiamata gratuita",
+    title: "Videochiamata preventiva",
     desc: "30 minuti per analizzare la tua situazione contrattuale e individuare le criticità.",
   },
   {

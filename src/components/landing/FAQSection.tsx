@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: "Quanto costa redigere un contratto?",
-    a: "Dipende dalla complessità, ma riceverai sempre un preventivo scritto prima di iniziare. Zero sorprese. Il preventivo è incluso nel check-up gratuito.",
+    a: "Dipende dalla complessità, ma riceverai sempre un preventivo scritto prima di iniziare. Zero sorprese. Il preventivo è incluso nel check-up preventivo.",
   },
   {
     q: "Lavorate solo con aziende di Trento?",

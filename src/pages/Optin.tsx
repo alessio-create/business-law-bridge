@@ -160,7 +160,7 @@ const Optin = () => {
                     <p key={i}>{point}</p>
                   ))}
                   <p className="text-foreground font-bold mt-1 text-[14px]">
-                    Il Check-up Legale Gratuito è il primo passo per blindare la tua impresa. Prenota ora.
+                    Il Check-up Legale Preventivo è il primo passo per blindare la tua impresa. Prenota ora.
                   </p>
                 </div>
               </div>

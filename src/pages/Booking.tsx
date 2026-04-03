@@ -145,7 +145,7 @@ const Booking = () => {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle className="w-4 h-4 text-primary" />
-                100% gratuito
+                100% preventivo
               </div>
             </div>
 

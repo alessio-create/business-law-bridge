@@ -3,8 +3,8 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const faqs = [
   {
-    q: "Il check-up è davvero gratuito?",
-    a: "Sì, 100%. La videochiamata di 30 minuti è senza costi e senza impegno. Serve a capire la tua situazione e valutare se possiamo aiutarti.",
+    q: "La consulenza è davvero preventiva?",
+    a: "Sì, 100%. La videochiamata di 30 minuti è senza impegno. Serve a capire la tua situazione e valutare se possiamo aiutarti.",
   },
   {
     q: "Quanto costa il servizio dopo il check-up?",

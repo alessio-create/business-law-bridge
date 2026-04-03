@@ -25,6 +25,7 @@ const ValuesSection = () => {
     <section className="px-6 py-24 md:px-20 md:py-32 bg-surface">
       <div ref={ref} className="max-w-[1060px] mx-auto">
         <div className="flex flex-col md:flex-row gap-14 lg:gap-20 items-center">
+          {/* Left: header, subtitle, checklist */}
           <div className="w-full md:w-1/2 flex flex-col gap-5">
             <span
               className={`text-primary/70 font-semibold text-[11px] uppercase tracking-label transition-all duration-700 ease-out ${
@@ -66,46 +67,50 @@ const ValuesSection = () => {
                 </div>
               ))}
             </div>
-            <p
-              className={`text-foreground font-bold text-[15px] mt-6 italic transition-all duration-600 ease-out delay-700 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
-            >
-              I tuoi contratti sono davvero a prova di causa?
-            </p>
-            <div
-              className={`flex flex-wrap gap-3 mt-1 transition-all duration-600 ease-out delay-[800ms] ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-              }`}
-            >
-              <Link
-                to="/quiz"
-                className="group inline-flex items-center gap-2 rounded-xl h-11 px-6 bg-primary text-primary-foreground text-[13px] font-bold shadow-primary-lg hover:shadow-primary-xl hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
-              >
-                No, voglio verificare
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" />
-              </Link>
-              <Link
-                to="/quiz"
-                className="inline-flex items-center gap-2 rounded-xl h-11 px-6 bg-surface-container-low text-foreground text-[13px] font-bold shadow-ambient hover:shadow-ambient-md hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
-              >
-                Sì, ma voglio essere sicuro
-              </Link>
-            </div>
           </div>
+
+          {/* Right: illustration + question + CTAs */}
           <div
-            className={`w-full md:w-1/2 flex items-center justify-center transition-all duration-800 ease-out delay-300 ${
+            className={`w-full md:w-1/2 flex flex-col items-center gap-8 transition-all duration-800 ease-out delay-300 ${
               isVisible ? "opacity-100 scale-100" : "opacity-0 scale-[0.96]"
             }`}
           >
             <img
               src={valuesIllustration}
               alt="Imprenditore con contratto sicuro e futuro protetto"
-              className="w-full max-w-2xl drop-shadow-lg"
+              className="w-full max-w-sm drop-shadow-lg"
               loading="lazy"
               width={1024}
               height={1024}
             />
+            <div className="flex flex-col items-center text-center gap-4">
+              <p
+                className={`text-foreground font-bold text-[15px] italic transition-all duration-600 ease-out delay-700 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+              >
+                I tuoi contratti sono davvero a prova di causa?
+              </p>
+              <div
+                className={`flex flex-wrap justify-center gap-3 transition-all duration-600 ease-out delay-[800ms] ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                }`}
+              >
+                <Link
+                  to="/quiz"
+                  className="group inline-flex items-center gap-2 rounded-xl h-11 px-6 bg-primary text-primary-foreground text-[13px] font-bold shadow-primary-lg hover:shadow-primary-xl hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
+                >
+                  No, voglio verificare
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-300" />
+                </Link>
+                <Link
+                  to="/quiz"
+                  className="inline-flex items-center gap-2 rounded-xl h-11 px-6 bg-surface-container-low text-foreground text-[13px] font-bold shadow-ambient hover:shadow-ambient-md hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
+                >
+                  Sì, ma voglio essere sicuro
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

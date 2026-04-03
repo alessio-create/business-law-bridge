@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle, Mail, User, Building2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, Mail, User, Building2, Star, Shield } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 

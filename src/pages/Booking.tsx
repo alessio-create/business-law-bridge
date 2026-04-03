@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { CheckCircle, ArrowLeft, Calendar, Clock, Video } from "lucide-react";
+import { CheckCircle, ArrowLeft, Calendar, Clock, Video, ArrowUp } from "lucide-react";
+import { useRef } from "react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import ChiSonoSection from "@/components/booking/ChiSonoSection";
@@ -18,6 +19,7 @@ const Booking = () => {
   const [lead, setLead] = useState<LeadInfo | null>(null);
   const [booked, setBooked] = useState(false);
   const [heroLoaded, setHeroLoaded] = useState(false);
+  const calendarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const stored = sessionStorage.getItem("leadInfo");
@@ -87,7 +89,7 @@ const Booking = () => {
       <Navbar />
       <main className="flex-1">
         {/* Hero / Calendar section */}
-        <section className="bg-surface relative">
+        <section ref={calendarRef} className="bg-surface relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-primary/[0.03] blur-3xl" />
           </div>
@@ -186,6 +188,25 @@ const Booking = () => {
         <ProcessStepsSection />
         <TestimonialsBookingSection />
         <FAQBookingSection />
+
+        {/* Final CTA anchored to calendar */}
+        <section className="bg-surface-container-low py-16 md:py-20">
+          <div className="max-w-[600px] mx-auto px-6 text-center">
+            <h2 className="text-foreground text-[1.5rem] md:text-[2rem] font-black mb-3 leading-[1.1]">
+              Pronto a proteggere i tuoi contratti?
+            </h2>
+            <p className="text-muted-foreground text-[14px] md:text-[15px] leading-[1.7] mb-8 max-w-md mx-auto">
+              Prenota ora il tuo check-up legale preventivo di 30 minuti. Nessun impegno, solo chiarezza.
+            </p>
+            <button
+              onClick={() => calendarRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
+              className="inline-flex items-center gap-2.5 bg-primary text-primary-foreground font-semibold text-[14px] px-8 py-4 rounded-xl hover:opacity-90 transition-all duration-300 shadow-ambient-md"
+            >
+              <ArrowUp className="w-4 h-4" />
+              Scegli il tuo slot
+            </button>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

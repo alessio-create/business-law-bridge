@@ -1,4 +1,4 @@
-import heroImage from "@/assets/hero-lawyer.jpg";
+import albertoFazio from "@/assets/alberto-fazio.jpg";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const ChiSonoSection = () => {
@@ -27,7 +27,7 @@ const ChiSonoSection = () => {
       >
         <div className="w-28 h-28 rounded-2xl overflow-hidden shrink-0 shadow-ambient">
           <img
-            src={heroImage}
+            src={albertoFazio}
             alt="Avv. Alberto Fazio"
             className="w-full h-full object-cover"
             width={112}

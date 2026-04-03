@@ -106,11 +106,19 @@ const Optin = () => {
                 <span className="text-sm font-bold text-foreground">4.9/5</span>
                 <span className="text-xs text-muted-foreground">su Google</span>
               </div>
-              <div className="flex flex-col gap-4">
-                <blockquote className="text-sm text-muted-foreground italic leading-relaxed">
-                  "Contratti rivisti in tempi record. Professionale, chiaro e sempre disponibile."
-                </blockquote>
-                <p className="text-xs font-bold text-foreground">— Marco T., CEO, azienda manifatturiera</p>
+              <div className="flex flex-col gap-5">
+                <div>
+                  <blockquote className="text-sm text-muted-foreground italic leading-relaxed">
+                    "Contratti rivisti in tempi record. Professionale, chiaro e sempre disponibile."
+                  </blockquote>
+                  <p className="text-xs font-bold text-foreground mt-2">— Marco T., CEO, azienda manifatturiera</p>
+                </div>
+                <div>
+                  <blockquote className="text-sm text-muted-foreground italic leading-relaxed">
+                    "Ha blindato tutti i nostri accordi di distribuzione. Zero sorprese da 3 anni."
+                  </blockquote>
+                  <p className="text-xs font-bold text-foreground mt-2">— Laura S., Direttrice commerciale, settore food</p>
+                </div>
               </div>
               <div className="mt-4 pt-4 border-t border-muted/20 flex items-center gap-3">
                 <Shield className="w-4 h-4 text-primary shrink-0" />

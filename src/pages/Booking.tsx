@@ -137,7 +137,30 @@ const Booking = () => {
             </div>
           </div>
 
-          {/* Cosa accadrà dopo */}
+          {/* Chi sono */}
+          <div className="mt-16 mb-16">
+            <h2 className="text-foreground text-2xl font-black text-center mb-8">Chi sono</h2>
+            <div className="bg-surface rounded-2xl p-8 shadow-ambient-md flex flex-col md:flex-row gap-8 items-center">
+              <div className="w-28 h-28 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                <span className="text-primary text-4xl font-black">AF</span>
+              </div>
+              <div className="flex flex-col gap-4 text-center md:text-left">
+                <div>
+                  <h3 className="text-foreground text-xl font-bold">Avv. Alberto Fazio</h3>
+                  <p className="text-sm text-primary font-medium">Cassazionista · 28 anni di esperienza</p>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Specializzato in contrattualistica d'impresa, assisto imprenditori e PMI nella redazione, revisione e negoziazione di contratti commerciali, di fornitura, appalto e distribuzione. Il mio approccio è pragmatico: contratti chiari, blindati e su misura per la tua realtà.
+                </p>
+                <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                  <span className="text-xs font-bold bg-primary/10 text-primary px-3 py-1.5 rounded-full">+200 imprese assistite</span>
+                  <span className="text-xs font-bold bg-primary/10 text-primary px-3 py-1.5 rounded-full">Iscritto all'Albo dal 1997</span>
+                  <span className="text-xs font-bold bg-primary/10 text-primary px-3 py-1.5 rounded-full">Abilitato in Cassazione</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="mt-16 mb-16">
             <h2 className="text-foreground text-2xl font-black text-center mb-8">Cosa accadrà dopo</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

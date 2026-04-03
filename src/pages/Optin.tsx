@@ -158,26 +158,6 @@ const Optin = () => {
               </div>
             )}
 
-            <div className="flex flex-col gap-3 text-sm text-muted-foreground">
-              <div className="flex items-center gap-3">
-                <div className="p-1 bg-primary/10 rounded-full">
-                  <CheckCircle className="w-4 h-4 text-primary shrink-0" />
-                </div>
-                Consulenza gratuita di 30 minuti
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="p-1 bg-primary/10 rounded-full">
-                  <CheckCircle className="w-4 h-4 text-primary shrink-0" />
-                </div>
-                Preventivo scritto incluso
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="p-1 bg-primary/10 rounded-full">
-                  <CheckCircle className="w-4 h-4 text-primary shrink-0" />
-                </div>
-                Nessun impegno o obbligo
-              </div>
-            </div>
 
             {/* Social Proof */}
             <div className="bg-surface rounded-2xl p-6 shadow-ambient">

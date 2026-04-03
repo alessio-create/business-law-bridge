@@ -37,13 +37,6 @@ const HeroSection = () => {
 
       <div className="relative px-6 py-28 md:px-20 md:py-36">
         <div className="max-w-[700px] mx-auto flex flex-col items-center text-center gap-8">
-          <span
-            className={`text-primary/80 font-semibold tracking-label uppercase text-[11px] transition-all duration-700 ease-out ${
-              heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
-            Avvocato d'Impresa — Contrattualistica
-          </span>
           <h1
             className={`text-foreground text-[2.5rem] md:text-[3.25rem] lg:text-[3.75rem] font-black leading-[1.05] text-balance transition-all duration-800 ease-out delay-200 ${
               heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"

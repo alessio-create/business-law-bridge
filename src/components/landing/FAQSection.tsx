@@ -4,8 +4,8 @@ import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const faqs = [
   {
-    q: "Il check-up è davvero gratuito?",
-    a: "Sì, 100%. Sono 30 minuti dedicati ad analizzare i tuoi contratti e capire dove sei esposto. Nessun costo, nessun obbligo.",
+    q: "Come funziona il check-up preventivo?",
+    a: "Sono 30 minuti dedicati ad analizzare i tuoi contratti e capire dove sei esposto. Nessun obbligo.",
   },
   {
     q: "Quanto costa redigere un contratto?",

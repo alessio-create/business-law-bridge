@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { CheckCircle, ArrowLeft, Calendar, Clock, Video } from "lucide-react";
+import { CheckCircle, ArrowLeft, Calendar, Clock, Video, Star, ChevronDown, Shield, FileText, PhoneCall } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 

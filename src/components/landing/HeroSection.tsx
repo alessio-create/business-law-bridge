@@ -50,7 +50,7 @@ const HeroSection = () => {
               heroLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            Contratti chiari, blindati, su misura per la tua impresa. Preventivo scritto prima di iniziare. Sempre.
+            Contratti chiari, blindati, su misura per la tua impresa.
           </p>
           <div
             className={`transition-all duration-700 ease-out delay-[550ms] ${

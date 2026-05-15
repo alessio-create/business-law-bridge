@@ -1,0 +1,10 @@
+# Avv. Alberto Fazio
+
+> Studio legale specializzato in contrattualistica d'impresa. L'Avv. Alberto Fazio, Cassazionista con 28 anni di esperienza, redige e revisiona contratti su misura per aziende italiane.
+
+## Pages
+
+- [Home](/): Presentazione dello studio e del check-up legale preventivo per imprese.
+- [Quiz Legale](/quiz): Quiz di 4 domande per valutare se i contratti aziendali offrono protezione adeguata.
+- [Report personalizzato](/optin): Report con l'analisi della situazione contrattuale dopo il quiz.
+- [Prenota Check-up](/booking): Prenotazione di una consulenza gratuita di 30 minuti con l'Avv. Fazio.

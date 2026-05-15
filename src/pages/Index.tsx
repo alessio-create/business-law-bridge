@@ -13,6 +13,11 @@ import Footer from "@/components/landing/Footer";
 
 const Index = () => (
   <div className="flex flex-col min-h-screen">
+    <SEO
+      title="Avv. Alberto Fazio - Contratti su misura per la tua impresa"
+      description="Proteggi la tua impresa con contratti blindati. L'Avv. Alberto Fazio offre 28 anni di esperienza in contrattualistica aziendale. Prenota un check-up legale."
+      path="/"
+    />
     <Navbar />
     <main className="flex-1">
       <HeroSection />

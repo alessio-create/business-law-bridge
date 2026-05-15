@@ -4,6 +4,7 @@ import { CheckCircle, ArrowLeft, Calendar, Clock, Video, ArrowUp } from "lucide-
 import { useRef } from "react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
+import SEO from "@/components/SEO";
 import ChiSonoSection from "@/components/booking/ChiSonoSection";
 import ProcessStepsSection from "@/components/booking/ProcessStepsSection";
 import TestimonialsBookingSection from "@/components/booking/TestimonialsBookingSection";
@@ -86,6 +87,11 @@ const Booking = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title="Prenota Check-up Legale - Avv. Alberto Fazio"
+        description="Prenota una consulenza gratuita di 30 minuti con l'Avv. Alberto Fazio per analizzare i tuoi contratti d'impresa. Nessun obbligo."
+        path="/booking"
+      />
       <Navbar />
       <main className="flex-1">
         {/* Hero / Calendar section */}

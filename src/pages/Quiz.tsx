@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowRight, ArrowLeft, CheckCircle } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
+import SEO from "@/components/SEO";
 
 interface QuizAnswer {
   question: number;
@@ -88,6 +89,11 @@ const Quiz = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title="Quiz Legale - Valuta i tuoi contratti | Avv. Alberto Fazio"
+        description="Rispondi a 4 domande per scoprire se i tuoi contratti proteggono davvero la tua impresa. Quiz gratuito in 2 minuti."
+        path="/quiz"
+      />
       <Navbar />
       <main className="flex-1 flex items-center justify-center px-6 py-12 md:py-20 bg-surface-container-low relative">
         {/* Subtle radial glow */}

@@ -119,6 +119,11 @@ const Optin = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title="Il tuo report personalizzato | Avv. Alberto Fazio"
+        description="Ricevi l'analisi della tua situazione contrattuale e prenota un check-up legale gratuito con l'Avv. Alberto Fazio."
+        path="/optin"
+      />
       <Navbar />
       <main className="flex-1 px-6 py-12 md:py-20 bg-surface-container-low relative">
         {/* Subtle radial glow */}

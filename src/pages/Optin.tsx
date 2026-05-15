@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CheckCircle, Mail, User, Building2, Star, Shield, AlertTriangle } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
+import SEO from "@/components/SEO";
 
 interface QuizAnswer {
   question: number;

@@ -87,6 +87,11 @@ const Booking = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SEO
+        title="Prenota Check-up Legale - Avv. Alberto Fazio"
+        description="Prenota una consulenza gratuita di 30 minuti con l'Avv. Alberto Fazio per analizzare i tuoi contratti d'impresa. Nessun obbligo."
+        path="/booking"
+      />
       <Navbar />
       <main className="flex-1">
         {/* Hero / Calendar section */}

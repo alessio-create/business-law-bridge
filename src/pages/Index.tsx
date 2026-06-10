@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import SEO from "@/components/SEO";
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroSection";
@@ -10,8 +11,13 @@ import FAQSection from "@/components/landing/FAQSection";
 import QualificationSection from "@/components/landing/QualificationSection";
 import CTASection from "@/components/landing/CTASection";
 import Footer from "@/components/landing/Footer";
+import { fbqTrack } from "@/lib/pixel";
 
-const Index = () => (
+const Index = () => {
+  useEffect(() => {
+    fbqTrack("PageView");
+  }, []);
+  return (
   <div className="flex flex-col min-h-screen">
     <SEO
       title="Avv. Alberto Fazio - Contratti su misura per la tua impresa"

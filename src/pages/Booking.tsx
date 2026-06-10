@@ -10,6 +10,7 @@ import ProcessStepsSection from "@/components/booking/ProcessStepsSection";
 import TestimonialsBookingSection from "@/components/booking/TestimonialsBookingSection";
 import FAQBookingSection from "@/components/booking/FAQBookingSection";
 import { fireWebhook } from "@/lib/webhook";
+import { fbqTrack } from "@/lib/pixel";
 
 interface LeadInfo {
   name: string;
@@ -35,6 +36,7 @@ const Booking = () => {
 
   const handleBooking = (slot?: string) => {
     setBooked(true);
+    fbqTrack("Schedule", { content_name: "Booking Confirmed", slot });
     const storedLead = sessionStorage.getItem("leadInfo");
     const storedQuiz = sessionStorage.getItem("quizAnswers");
     const leadData = storedLead ? JSON.parse(storedLead) : { name: "", email: "", phone: "", company: "" };

@@ -5,6 +5,7 @@ import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import SEO from "@/components/SEO";
 import { fireWebhook } from "@/lib/webhook";
+import { fbqTrack } from "@/lib/pixel";
 
 interface QuizAnswer {
   question: number;
@@ -20,16 +21,20 @@ const Optin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+  useEffect(() => {
     const stored = sessionStorage.getItem("quizAnswers");
     if (stored) {
       setAnswers(JSON.parse(stored));
     }
+    fbqTrack("ViewContent", { content_name: "Optin Page" });
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const lead = { name, email, phone, company };
     sessionStorage.setItem("leadInfo", JSON.stringify(lead));
+    fbqTrack("Lead", { content_name: "Optin Lead" });
+    fbqTrack("CompleteRegistration", { content_name: "Optin Registration" });
     fireWebhook({
       event: "optin_submitted",
       timestamp: new Date().toISOString(),

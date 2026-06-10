@@ -4,6 +4,7 @@ import { ArrowRight, ArrowLeft, CheckCircle } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import SEO from "@/components/SEO";
+import { fbqTrack } from "@/lib/pixel";
 
 interface QuizAnswer {
   question: number;
@@ -57,6 +58,10 @@ const Quiz = () => {
   const [answers, setAnswers] = useState<QuizAnswer[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fbqTrack("PageView");
+  }, []);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });

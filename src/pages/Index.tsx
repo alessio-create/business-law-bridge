@@ -37,6 +37,7 @@ const Index = () => {
     </main>
     <Footer />
   </div>
-);
+  );
+};
 
 export default Index;

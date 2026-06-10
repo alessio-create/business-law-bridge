@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle, Mail, User, Building2, Star, Shield, AlertTriangle } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle, Mail, User, Building2, Phone, Star, Shield, AlertTriangle } from "lucide-react";
 import Navbar from "@/components/landing/Navbar";
 import Footer from "@/components/landing/Footer";
 import SEO from "@/components/SEO";
+import { fireWebhook } from "@/lib/webhook";
 
 interface QuizAnswer {
   question: number;
@@ -14,6 +15,7 @@ const Optin = () => {
   const [answers, setAnswers] = useState<QuizAnswer[]>([]);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [company, setCompany] = useState("");
   const navigate = useNavigate();
 
@@ -26,7 +28,17 @@ const Optin = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    sessionStorage.setItem("leadInfo", JSON.stringify({ name, email, company }));
+    const lead = { name, email, phone, company };
+    sessionStorage.setItem("leadInfo", JSON.stringify(lead));
+    fireWebhook({
+      event: "optin_submitted",
+      timestamp: new Date().toISOString(),
+      lead,
+      quiz: answers,
+      booked: false,
+      page_url: window.location.href,
+      referrer: document.referrer,
+    });
     navigate("/booking");
   };
 
@@ -81,6 +93,22 @@ const Optin = () => {
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder="mario@azienda.it"
+            className="w-full h-12 pl-11 pr-4 rounded-xl bg-surface-container-low text-foreground text-[14px] placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-shadow"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label className="text-[13px] font-bold text-foreground">Telefono *</label>
+        <div className="relative">
+          <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+          <input
+            type="tel"
+            required
+            maxLength={30}
+            value={phone}
+            onChange={e => setPhone(e.target.value)}
+            placeholder="+39 333 1234567"
             className="w-full h-12 pl-11 pr-4 rounded-xl bg-surface-container-low text-foreground text-[14px] placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary transition-shadow"
           />
         </div>

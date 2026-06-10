@@ -9,10 +9,12 @@ import ChiSonoSection from "@/components/booking/ChiSonoSection";
 import ProcessStepsSection from "@/components/booking/ProcessStepsSection";
 import TestimonialsBookingSection from "@/components/booking/TestimonialsBookingSection";
 import FAQBookingSection from "@/components/booking/FAQBookingSection";
+import { fireWebhook } from "@/lib/webhook";
 
 interface LeadInfo {
   name: string;
   email: string;
+  phone?: string;
   company: string;
 }
 
@@ -31,8 +33,26 @@ const Booking = () => {
     return () => clearTimeout(t);
   }, []);
 
-  const handleBooking = () => {
+  const handleBooking = (slot?: string) => {
     setBooked(true);
+    const storedLead = sessionStorage.getItem("leadInfo");
+    const storedQuiz = sessionStorage.getItem("quizAnswers");
+    const leadData = storedLead ? JSON.parse(storedLead) : { name: "", email: "", phone: "", company: "" };
+    fireWebhook({
+      event: "booking_confirmed",
+      timestamp: new Date().toISOString(),
+      lead: {
+        name: leadData.name || "",
+        email: leadData.email || "",
+        phone: leadData.phone || "",
+        company: leadData.company || "",
+      },
+      quiz: storedQuiz ? JSON.parse(storedQuiz) : [],
+      booked: true,
+      booking: { slot },
+      page_url: window.location.href,
+      referrer: document.referrer,
+    });
   };
 
   if (booked && lead) {
@@ -156,7 +176,7 @@ const Booking = () => {
                     {["Lun 10:00", "Mar 14:00", "Mer 11:00", "Gio 16:00", "Ven 09:00", "Ven 15:00"].map((slot) => (
                       <button
                         key={slot}
-                        onClick={handleBooking}
+                        onClick={() => handleBooking(slot)}
                         className="flex items-center justify-center gap-2 p-4 rounded-xl bg-surface hover:ring-2 hover:ring-primary hover:shadow-ambient-md hover:-translate-y-0.5 transition-all duration-300 text-[14px] font-medium text-foreground shadow-ambient"
                       >
                         <Clock className="w-4 h-4 text-primary" />

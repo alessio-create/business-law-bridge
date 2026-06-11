@@ -21,7 +21,6 @@ const Optin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-  useEffect(() => {
     const stored = sessionStorage.getItem("quizAnswers");
     if (stored) {
       setAnswers(JSON.parse(stored));
